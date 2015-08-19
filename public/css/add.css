@@ -1,0 +1,23 @@
+.intro-header {
+	height: 250px;
+}
+
+form {
+    text-align: center;
+}
+
+.input {
+    width: 35%;
+    min-width: 374px;
+    margin-bottom: 10px;
+}
+
+#post {
+    width: 50%;
+}
+
+#postBody {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}

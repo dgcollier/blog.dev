@@ -2,33 +2,7 @@
 <html lang="en">
 <head>
     <title>Rolldice</title>
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <style type="text/css">
-    	body {
-    		text-align: center;
-    	}
-
-    	h1 {
-    		margin-top: 8%;
-    		text-decoration: underline;
-    	}
-
-    	#guess,
-    	#die {
-    		width: 360px;
-    		margin-top: 2%;
-    		margin-left: auto;
-    		margin-right: auto;
-    		background-color: #337ab7;
-    		color: #fff;
-    	}
-
-    	#goBtn {
-    		width: 360px;
-    	}
-
-    </style>
+    <script src="/js/jquery.js"></script>
 </head>
 <body>
 	<h1>Roll Dice Game:</h1>
@@ -38,6 +12,10 @@
 	</div>
 
     <button class="btn btn-lg" id="goBtn"><?= $message ?></button>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/rolldice.css">
+
+    <p>Select next guess below:</p>
 
     <div class="well" id="die">
 	    <button class="btn btn-md btn-info dieNum" id="one">1</button>
@@ -48,30 +26,6 @@
 	    <button class="btn btn-md btn-info dieNum" id="six">6</button>
     </div>
 
-
-    <script type="text/javascript">
-	    $(document).ready( function() {
-
-	    	$('#goBtn').click(function () {
-	    		location.reload(true);
-	    	})
-
-	    	var btnText = $('#goBtn').text();
-
-	    	if (btnText == 'You LOSE!') {
-	    		$('#goBtn').addClass("btn-danger");
-	    	} else {
-	    		$('#goBtn').addClass("btn-success");
-	    	}
-
-	    	$('.dieNum').click(function() {
-	    		$('.dieNum').removeClass("btn-warning");
-	    		$('.dieNum').addClass("btn-info");
-	    		$(this).removeClass("btn-info");
-	    		$(this).addClass("btn-warning");
-	    	});
-
-	    });
-    </script>
+    <script src="/js/rolldice.js"></script>
 </body>
 </html>
