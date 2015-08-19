@@ -51,5 +51,6 @@ Route::get('/rolldice/{userGuess}', function($userGuess)
 	} 
 
 	$data = array('compGuess' => $compGuess, 'userGuess' => $userGuess, 'message' => $message);
+	
 	return View::make('rolldice')->with($data);
 });
