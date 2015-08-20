@@ -11,14 +11,9 @@
 |
 */
 
+// GET
 // HOME
 Route::get('/', 'HomeController@showHome');
-
-// ADD
-Route::get('/add', 'HomeController@showAdd');
-
-// POST
-Route::get('/post', 'HomeController@showPost');
 
 // ABOUT
 Route::get('/about', 'HomeController@showAbout');
@@ -35,8 +30,13 @@ Route::get('/resume', 'HomeController@showResume');
 // PORTFOLIO
 Route::get('/portfolio', 'HomeController@showPortfolio');
 
-// SAY HELLO *****
+// SAY HELLO
 Route::get('/sayhello/{name?}', 'HomeController@sayHello');
 
 // ROLLDICE
 Route::get('/rolldice/{userGuess?}', 'HomeController@showRolldice');
+
+
+// RESOURCE
+// POST
+Route::resource('/posts', 'PostsController');

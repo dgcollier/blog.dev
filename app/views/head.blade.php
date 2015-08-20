@@ -1,5 +1,5 @@
 <head>
-	<title>Laravel Blog</title>
+	<title>Dave's Blog</title>
 <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 

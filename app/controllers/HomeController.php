@@ -20,16 +20,6 @@ class HomeController extends BaseController {
 		return View::make('home');
 	}
 
-	public function showAdd()
-	{
-		return View::make('add');
-	}
-
-	public function showPost()
-	{
-		return View::make('post');
-	}
-
 	public function showAbout()
 	{
 		return View::make('about');

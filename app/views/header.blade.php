@@ -18,22 +18,22 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="about">About</a>
+                    <a href="/about">About</a>
                 </li>
                 <li>
-                    <a href="search">Search</a>
+                    <a href="/search">Search</a>
                 </li>
                 <li>
-                    <a href="contact">Contact</a>
+                    <a href="/contact">Contact</a>
                 </li>
                 <li class="dropdown" id="wtf">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Misc.<span class="caret"></span></a>
                   <ul class="dropdown-menu nav navbar-nav navbar-right">
                     <li>
-                        <a href="portfolio">Portfolio</a>
+                        <a href="/portfolio">Portfolio</a>
                     </li>
                     <li>
-                        <a href="rolldice/1">Rolldice</a>
+                        <a href="/rolldice/1">Rolldice</a>
                     </li>
                   </ul>
                 </li>

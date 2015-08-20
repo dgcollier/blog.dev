@@ -3,7 +3,7 @@
 @section('content')
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
-<header class="intro-header" style="background-image: url('img/blog_post.jpg')">
+<header class="intro-header" style="background-image: url('/img/blog_post.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -56,6 +56,9 @@
                 <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
 
                 <p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+
+                <a href="/posts/post/edit"><button class="btn btn-sm">Edit >></button></a>
+                <a href="#"><button class="btn btn-sm">Delete >></button></a>
             </div>
         </div>
     </div>
