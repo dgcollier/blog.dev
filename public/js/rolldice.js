@@ -7,6 +7,7 @@ $(document).ready( function() {
 		if (nextGuess) {
 			var url = "rolldice/" + nextGuess;
 			window.location.reload(url);
+			console.log(nextGuess);
 		} 
 	});
 
@@ -23,7 +24,6 @@ $(document).ready( function() {
 		$('.dieNum').addClass("btn-info");
 		$(this).removeClass("btn-info");
 		$(this).addClass("btn-warning");
-		console.log(nextGuess);
 	});
 
 	/* 

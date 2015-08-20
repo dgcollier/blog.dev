@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <a href="add">Add New Post</a>
+                <h3><a class="post-subtitle" href="add">Add New Post</a></h3>
                 <div class="post-preview">
                     <a href="post">
                         <h2 class="post-title">

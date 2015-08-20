@@ -38,7 +38,7 @@ Route::get('/resume', function()
 // PORTFOLIO
 Route::get('/portfolio', function()
 {
-	return 'This is my portfolio.';
+	return View::make('portfolio');
 });
 
 // CONTACT

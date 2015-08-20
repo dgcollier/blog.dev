@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="/css/header.css">
+
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -16,9 +18,6 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
                     <a href="about">About</a>
                 </li>
                 <li>
@@ -27,10 +26,15 @@
                 <li>
                     <a href="contact">Contact</a>
                 </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="rolldice/1">Rolldice</a></li>
+                <li class="dropdown" id="wtf">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Misc.<span class="caret"></span></a>
+                  <ul class="dropdown-menu nav navbar-nav navbar-right">
+                    <li>
+                        <a href="portfolio">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="rolldice/1">Rolldice</a>
+                    </li>
                   </ul>
                 </li>
             </ul>
