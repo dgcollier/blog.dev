@@ -3,10 +3,24 @@
 @section('content')
 
 <style type="text/css">
-	header {
-		background-color: blue;
-	}
+	/*.portTitle {
+		color: #404040;
+	}*/
 </style>
+
+<header class="intro-header" style="background-image: url('/img/blog_portfolio.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1 class="portTitle">Portfolio</h1>
+                    <hr class="small">
+                    <span class="subheading portTitle">Web Development Projects</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
 <div class="container">
 	<!-- Page Header -->
