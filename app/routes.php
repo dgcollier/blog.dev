@@ -12,76 +12,31 @@
 */
 
 // HOME
-Route::get('/', function()
-{
-	return View::make('home');
-});
-
-// POST
-Route::get('/post', function()
-{
-	return View::make('post');
-});
-
-// ABOUT
-Route::get('/about', function()
-{
-	return View::make('about');
-});
-
-// RESUME
-Route::get('/resume', function()
-{
-	return View::make('resume');
-});
-
-// PORTFOLIO
-Route::get('/portfolio', function()
-{
-	return View::make('portfolio');
-});
-
-// CONTACT
-Route::get('/contact', function()
-{
-	return View::make('contact');
-});
-
-// SEARCH
-Route::get('/search', function()
-{
-	return View::make('search');
-});
+Route::get('/', 'HomeController@showHome');
 
 // ADD
-Route::get('/add', function()
-{
-	return View::make('add');
-});
+Route::get('/add', 'HomeController@showAdd');
 
-// SAY HELLO
-Route::get('/sayhello/{name?}', function($name = '')
-{
-    if ($name == "Chris") {
-        return Redirect::to('/');
-    } else {
-    	$data = array('name' => $name);
-        return View::make('sayhello')->with($data);
-    }
-});
+// POST
+Route::get('/post', 'HomeController@showPost');
+
+// ABOUT
+Route::get('/about', 'HomeController@showAbout');
+
+// SEARCH
+Route::get('/search', 'HomeController@showSearch');
+
+// CONTACT
+Route::get('/contact', 'HomeController@showContact');
+
+// RESUME
+Route::get('/resume', 'HomeController@showResume');
+
+// PORTFOLIO
+Route::get('/portfolio', 'HomeController@showPortfolio');
+
+// SAY HELLO *****
+Route::get('/sayhello/{name?}', 'HomeController@sayHello');
 
 // ROLLDICE
-Route::get('/rolldice/{userGuess?}', function($userGuess = 6)
-{
-	$compGuess = mt_rand(1,6);
-
-	if ($userGuess == $compGuess) {
-		$message = 'You WIN!';
-	} else {
-		$message = 'You LOSE!';
-	} 
-
-	$data = array('compGuess' => $compGuess, 'userGuess' => $userGuess, 'message' => $message);
-	
-	return View::make('rolldice')->with($data);
-});
+Route::get('/rolldice/{userGuess?}', 'HomeController@showRolldice');

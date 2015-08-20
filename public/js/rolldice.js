@@ -3,12 +3,12 @@ $(document).ready( function() {
 	var nextGuess = $(".btn-warning").text();
 
 	$('#goBtn').click(function () {
-		// location.reload(true);
-		if (nextGuess) {
-			var url = "rolldice/" + nextGuess;
-			window.location.reload(url);
-			console.log(nextGuess);
-		} 
+		location.reload(true);
+		// if (nextGuess) {
+		// 	var url = "rolldice/" + nextGuess;
+		// 	window.location.reload(url);
+		// 	console.log(nextGuess);
+		// } 
 	});
 
 	var btnText = $('#goBtn').text();
