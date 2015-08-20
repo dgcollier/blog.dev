@@ -1,26 +1,22 @@
-h1 {
-	text-align: center;
-}
-
-section {
+.entry {
 	margin-left: 15%;
 	margin-right: 15%;
 }
 
-h3 {
+.employer {
 	float: left;
 }
 
-h4 {
+.city {
 	margin-top: 25px;
 }
 
-h4,
-h5 { 
+.city,
+.date { 
 	float: right;
 	clear: right;
 }
 
-ul {
+.duties {
 	clear: left;
 }

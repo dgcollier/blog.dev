@@ -10,7 +10,8 @@ class PostsController extends \BaseController {
 	public function index()
 	{
 		// show all posts
-		return View::make('posts');
+		$posts = Post::all();
+		return View::make('posts.index')->with('posts', $posts);
 	}
 
 
@@ -34,7 +35,16 @@ class PostsController extends \BaseController {
 	public function store()
 	{
 		// store new post in DB
-		return Redirect::back()->withInput();
+		if(!Input::has('title') || !Input::has('body')) {
+			return Redirect::back()->withInput();	
+		}
+
+		$post = new Post();
+		$post->title = Input::get('title');
+		$post->body = Input::get('postBody');
+		$post->save();
+
+		return Redirect::action('PostsController@index');
 	}
 
 
@@ -47,7 +57,9 @@ class PostsController extends \BaseController {
 	public function show($id)
 	{
 		// display post by id
-		return View::make('posts.post');
+		$post = Post::find($id);
+
+		return View::make('posts.show')->with('post', $post);
 	}
 
 
@@ -60,7 +72,8 @@ class PostsController extends \BaseController {
 	public function edit($id)
 	{
 		// edit a specific blog post
-		return View::make('posts.edit');
+		$post = Post::find($id);
+		return View::make('posts.edit')->with('post', $post);
 	}
 
 
@@ -73,7 +86,13 @@ class PostsController extends \BaseController {
 	public function update($id)
 	{
 		// updates the edited blog post
-		return Redirect::back()->withInput();
+		$post = Post::find($id);
+		$post->title = Input::get('title');
+		$post->sub_title = Input::get('sub_title');
+		$post->body = Input::get('postBody');
+		$post->save();
+
+		return Redirect::back();
 	}
 
 
@@ -86,6 +105,7 @@ class PostsController extends \BaseController {
 	public function destroy($id)
 	{
 		// delete specific blog post
+		$post = Post::find($id);
 		return "Deletes a blog post by id ($id).";
 	}
 

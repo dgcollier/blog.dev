@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
     <header class="intro-header" style="background-image: url('img/blog_home.jpg')">
@@ -21,19 +22,19 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h3><a class="post-subtitle" href="posts/create">Add New Post</a></h3>
-                <div class="post-preview">
-                    <a href="posts/show">
-                        <h2 class="post-title">
-                            Man must explore, and this is exploration at its greatest
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Problems look mighty small from 150 miles up
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-                </div>
+                <h3><a class="post-subtitle" href="/posts/create">Create New Post</a></h3>
                 <hr>
+                <div class="post-preview">
+                    
+                    @foreach ($posts as $post)
+                    <a href="{{{ action('PostsController@show', $post->id) }}}">
+                        <h2 class="post-title">{{{ $post->title }}}</h2>
+                        <h3 class="post-subtitle">{{{ $post->sub_title }}}</h3>
+                    </a>
+                    <p class="post-meta">Posted by <a href="#">{{{ $post->author }}}</a> on {{{ $post->created_at }}}</p>
+                    <hr>
+                    @endforeach
+                </div>
                
                 <!-- Pager -->
                 <ul class="pager">

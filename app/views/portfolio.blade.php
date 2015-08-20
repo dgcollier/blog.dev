@@ -2,12 +2,6 @@
 
 @section('content')
 
-<style type="text/css">
-	/*.portTitle {
-		color: #404040;
-	}*/
-</style>
-
 <header class="intro-header" style="background-image: url('/img/blog_portfolio.jpg')">
     <div class="container">
         <div class="row">
