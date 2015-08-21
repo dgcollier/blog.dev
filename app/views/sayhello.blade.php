@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('content')
+@section('header')
 
 	<style type="text/css">
 		#display {
@@ -23,6 +23,8 @@
 	        </div>
 	    </div>
 	</header>
+
+@section('content')
 
 	@if (!empty($name))
 	    <h1 id="display">{{{ $name }}}</h1>

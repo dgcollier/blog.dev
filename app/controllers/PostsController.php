@@ -10,7 +10,7 @@ class PostsController extends \BaseController {
 	public function index()
 	{
 		// show all posts
-		$posts = Post::all();
+		$posts = Post::paginate(4);
 		return View::make('posts.index')->with('posts', $posts);
 	}
 

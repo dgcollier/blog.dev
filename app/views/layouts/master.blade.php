@@ -11,6 +11,18 @@
 	</header>
 
 	<main>
+		@yield('header')
+
+		 <div class="container">
+            @if($errors->has())
+                @foreach($errors->all() as $error)
+                    <ul>
+                        <li class="errors alert alert-danger" role="alert">{{{ $error }}}</li>
+                    </ul>
+                @endforeach
+            @endif
+        </div>
+        
 	    @yield('content')
     </main>
 

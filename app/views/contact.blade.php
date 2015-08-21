@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('content')
+@section('header')
 
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
@@ -17,6 +17,8 @@
         </div>
     </div>
 </header>
+
+@section('content')
 
 <!-- Main Content -->
 <div class="container">

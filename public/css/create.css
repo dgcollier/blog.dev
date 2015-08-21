@@ -22,7 +22,7 @@
     margin-right: auto;
 }
 
-#errors {
+.errors {
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
