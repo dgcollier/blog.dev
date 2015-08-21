@@ -1,8 +1,10 @@
 @extends('layouts.master')
 
-@section('header')
+@section('head')
 
-	<link rel="stylesheet" type="text/css" href="css/resume.css">
+<link rel="stylesheet" type="text/css" href="css/resume.css">
+
+@section('header')
 
 	<header class="intro-header" style="background-image: url('img/blog_resume.jpg')">
 	    <div class="container">

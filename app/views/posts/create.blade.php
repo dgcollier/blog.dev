@@ -1,8 +1,10 @@
 @extends('layouts.master')
 
-@section('header')
+@section('head')
 
 <link rel="stylesheet" type="text/css" href="/css/create.css">
+
+@section('header')
 
 <header class="intro-header" style="background-image: url('/img/blog_add.jpg')">
     <div class="container">
@@ -23,7 +25,7 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         	<!-- Form to Add Park to Database -->
-	        {{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal', 'id' => 'addPost', 'method' => 'POST')) }}
+	        {{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal', 'id' => 'createPost')) }}
 	            <div id="createForm" class="form-group col-xs-12">
 	                <h2>Add a Post:</h2>
 	                <div class="@if($errors->has('title')) has-error @endif">
@@ -43,6 +45,7 @@
 
 	                <div class="row">
                         <div class="form-group col-xs-12">
+                            <button id="backBtn" class="btn btn-default"><< Back</button>
                             <button class="btn btn-default" id="post">Submit</button>
                         </div>
                     </div>
@@ -51,5 +54,9 @@
         </div>
     </div>
 </div>
+
+@section('script')
+
+<script src="/js/backBtn.js"></script>
 
 @stop

@@ -10,7 +10,7 @@ class PostsController extends \BaseController {
 	public function index()
 	{
 		// show all posts
-		$posts = Post::paginate(4);
+		$posts = Post::orderBy('updated_at','desc')->paginate(4);
 		return View::make('posts.index')->with('posts', $posts);
 	}
 
@@ -66,6 +66,10 @@ class PostsController extends \BaseController {
 		// display post by id
 		$post = Post::find($id);
 
+		if(!$post) {
+			return Redirect::action('PostsController@index');	
+		}
+
 		return View::make('posts.show')->with('post', $post);
 	}
 
@@ -92,14 +96,24 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		// updates the edited blog post
-		$post = Post::find($id);
-		$post->title = Input::get('title');
-		$post->sub_title = Input::get('sub_title');
-		$post->body = Input::get('postBody');
-		$post->save();
+		// create the validator
+	    $validator = Validator::make(Input::all(), Post::$rules);
 
-		return Redirect::back();
+	    // attempt validation
+	    if ($validator->fails()) {
+	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+			// updates the edited blog post
+			$post = Post::find($id);
+			$post->title = Input::get('title');
+			$post->sub_title = Input::get('sub_title');
+			$post->author = Input::get('author');
+			$post->body = Input::get('body');
+			$post->save();
+
+			return View::make('posts.show')->with('post', $post);
+		}
 	}
 
 
@@ -115,6 +129,4 @@ class PostsController extends \BaseController {
 		$post = Post::find($id);
 		return "Deletes a blog post by id ($id).";
 	}
-
-
 }

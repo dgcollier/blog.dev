@@ -10,7 +10,7 @@
                 <div class="post-heading">
                     <h1>{{{ $post->title }}}</h1>
                     <h2 class="subheading">{{{ $post->sub_title }}}</h2>
-                    <span class="meta">Posted by <a href="#">{{{ $post->author}}}</a> on {{{ $post->created_at }}}</span>
+                    <span class="meta">Posted by <a href="#">{{{ $post->author}}}</a> on {{{ $post->updated_at }}}</span>
                 </div>
             </div>
         </div>
@@ -24,11 +24,22 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>{{{ $post->body }}}</p>
-
-                <a href="{{{ action('PostsController@edit', $post->id) }}}"><input class="btn btn-default" value="Edit >>"></a>
-                <a href="#"><input class="btn btn-default" value="Delete >>"></a>
+                <a href="{{{ action('PostsController@index') }}}">  
+                    <button id="backBtn" class="btn btn-default"><< Back</button>
+                </a>
+                <a href="{{{ action('PostsController@edit', $post->id) }}}">
+                    <input class="btn btn-default" value="Edit >>">
+                </a>
+                <a href="#">
+                    <input class="btn btn-default" value="Delete >>">
+                </a>
             </div>
         </div>
     </div>
 </article>
+
+@section('script')
+
+{{-- <script src="/js/backBtn.js"></script> --}}
+
 @stop
