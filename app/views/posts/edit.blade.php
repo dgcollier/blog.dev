@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="/css/add.css">
+<link rel="stylesheet" type="text/css" href="/css/create.css">
 
 <header class="intro-header" style="background-image: url('/img/blog_add.jpg')">
     <div class="container">
@@ -22,7 +22,7 @@
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         	<!-- Form to Add Park to Database -->
 	        <form action="{{{ action('PostsController@update') }}}" id="addPost" class="form-horizontal" method="PUT">
-	            <div id="parkForm" class="form-group col-xs-12">
+	            <div id="editForm" class="form-group col-xs-12">
 	                <h2>Edit:</h2>
 	                <div><input type="text" id="title" class="input" name="title" placeholder="Title" value="{{{ $post->title }}}" autofocus></div>
 	                <div><input type="text" id="subheader" class="input" name="subheader" placeholder="Sub-header" value="{{{ $post->sub_title }}}"></div>

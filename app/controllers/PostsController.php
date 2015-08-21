@@ -34,17 +34,24 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		// store new post in DB
-		if(!Input::has('title') || !Input::has('body')) {
-			return Redirect::back()->withInput();	
-		}
+		// create the validator
+	    $validator = Validator::make(Input::all(), Post::$rules);
 
-		$post = new Post();
-		$post->title = Input::get('title');
-		$post->body = Input::get('postBody');
-		$post->save();
+	    // attempt validation
+	    if ($validator->fails()) {
+	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+	        // validation succeeded, create and save the post
+			$post = new Post();
+			$post->title = Input::get('title');
+			$post->sub_title = Input::get('sub_title');
+			$post->author = Input::get('author');
+			$post->body = Input::get('body');
+			$post->save();
 
-		return Redirect::action('PostsController@index');
+			return Redirect::action('PostsController@index');
+	    }
 	}
 
 
