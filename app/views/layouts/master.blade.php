@@ -9,6 +9,7 @@
 	<header>
 		@include('header')
 		@yield('header')
+        @include('messages')
         @include('errors')
     </header>
 
@@ -25,6 +26,9 @@
 
     <!-- Bootstrap Core JavaScript -->       
     <script src="/js/bootstrap.min.js"></script>       
+
+    <!-- Clean Blog JavaScript -->       
+    <script src="/js/header.js"></script>       
 
     @yield('script')
 </body>

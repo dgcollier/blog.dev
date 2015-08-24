@@ -9,12 +9,10 @@
 $(function() {
 
     $("input,textarea").jqBootstrapValidation({
-        preventSubmit: true,
         submitError: function($form, event, errors) {
             // additional error messages or events
         },
         submitSuccess: function($form, event) {
-            event.preventDefault(); // prevent default submit behaviour
             // get values from FORM
             var name = $("input#name").val();
             var email = $("input#email").val();
@@ -95,7 +93,6 @@ $('#name').focus(function() {
 		options: {
 			prependExistingHelpBlock: false,
 			sniffHtml: true, // sniff for 'required', 'maxlength', etc
-			preventSubmit: true, // stop the form submit event from firing if validation fails
 			submitError: false, // function called if there is an error when trying to submit
 			submitSuccess: false, // function called just before a successful submit event is sent to the server
             semanticallyStrict: false, // set to true to tidy up generated HTML output
@@ -1001,32 +998,32 @@ $(function() {
     });
 });
 
-// Navigation Scripts to Show Header on Scroll-Up
-jQuery(document).ready(function($) {
-    var MQL = 1170;
+// // Navigation Scripts to Show Header on Scroll-Up
+// jQuery(document).ready(function($) {
+//     var MQL = 1170;
 
-    //primary navigation slide-in effect
-    if ($(window).width() > MQL) {
-        var headerHeight = $('.navbar-custom').height();
-        $(window).on('scroll', {
-                previousTop: 0
-            },
-            function() {
-                var currentTop = $(window).scrollTop();
-                //check if user is scrolling up
-                if (currentTop < this.previousTop) {
-                    //if scrolling up...
-                    if (currentTop > 0 && $('.navbar-custom').hasClass('is-fixed')) {
-                        $('.navbar-custom').addClass('is-visible');
-                    } else {
-                        $('.navbar-custom').removeClass('is-visible is-fixed');
-                    }
-                } else {
-                    //if scrolling down...
-                    $('.navbar-custom').removeClass('is-visible');
-                    if (currentTop > headerHeight && !$('.navbar-custom').hasClass('is-fixed')) $('.navbar-custom').addClass('is-fixed');
-                }
-                this.previousTop = currentTop;
-            });
-    }
-});
+//     //primary navigation slide-in effect
+//     if ($(window).width() > MQL) {
+//         var headerHeight = $('.navbar-custom').height();
+//         $(window).on('scroll', {
+//                 previousTop: 0
+//             },
+//             function() {
+//                 var currentTop = $(window).scrollTop();
+//                 //check if user is scrolling up
+//                 if (currentTop < this.previousTop) {
+//                     //if scrolling up...
+//                     if (currentTop > 0 && $('.navbar-custom').hasClass('is-fixed')) {
+//                         $('.navbar-custom').addClass('is-visible');
+//                     } else {
+//                         $('.navbar-custom').removeClass('is-visible is-fixed');
+//                     }
+//                 } else {
+//                     //if scrolling down...
+//                     $('.navbar-custom').removeClass('is-visible');
+//                     if (currentTop > headerHeight && !$('.navbar-custom').hasClass('is-fixed')) $('.navbar-custom').addClass('is-fixed');
+//                 }
+//                 this.previousTop = currentTop;
+//             });
+//     }
+// });

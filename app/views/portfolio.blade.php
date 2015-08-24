@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('header')
-
 	<header class="intro-header" style="background-image: url('/img/blog_portfolio.jpg')">
 	    <div class="container">
 	        <div class="row">
@@ -15,9 +14,9 @@
 	        </div>
 	    </div>
 	</header>
+@stop
 
 @section('content')
-
 	<div class="container">
 		<!-- Projects Row -->
 		<div class="row">

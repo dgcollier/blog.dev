@@ -1,3 +1,5 @@
-a > button:hover {
-	text-decoration: none !important;
+.messages {
+    text-align: center;
+    margin-right: 10%;
+    margin-left: 10%;
 }

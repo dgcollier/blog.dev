@@ -1,11 +1,10 @@
 @extends('layouts.master')
 
 @section('head')
-
-<link rel="stylesheet" type="text/css" href="css/resume.css">
+	<link rel="stylesheet" type="text/css" href="css/resume.css">
+@stop
 
 @section('header')
-
 	<header class="intro-header" style="background-image: url('img/blog_resume.jpg')">
 	    <div class="container">
 	        <div class="row">
@@ -19,9 +18,9 @@
 	        </div>
 	    </div>
 	</header>
+@stop
 
 @section('content')
-
 	<section class="entry">
 		<h3 class="employer">Codeup Bootcamp</h3>
 		<h4 class="city">San Antonio, TX</h4>

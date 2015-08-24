@@ -1,6 +1,6 @@
 <?php
 
-class PostsController extends \BaseController {
+class PostsController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,6 +9,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
+		Session::put('page', Input::get('page'));
 		// show all posts
 		$posts = Post::orderBy('updated_at','desc')->paginate(4);
 		return View::make('posts.index')->with('posts', $posts);
@@ -39,8 +40,10 @@ class PostsController extends \BaseController {
 
 	    // attempt validation
 	    if ($validator->fails()) {
-	        // validation failed, redirect to the post create page with validation errors and old inputs
+			Session::flash('errorMessage', 'Hmmm...something went wrong. Please check the message(s) below to fix:');
+
 	        return Redirect::back()->withInput()->withErrors($validator);
+
 	    } else {
 	        // validation succeeded, create and save the post
 			$post = new Post();
@@ -49,6 +52,10 @@ class PostsController extends \BaseController {
 			$post->author = Input::get('author');
 			$post->body = Input::get('body');
 			$post->save();
+
+			Log::info('Post: ' . $post->title . ' created.', array('newPost' => Input::all()));
+
+			Session::flash('successMessage', 'Your post was created successfully!');
 
 			return Redirect::action('PostsController@index');
 	    }
@@ -67,7 +74,7 @@ class PostsController extends \BaseController {
 		$post = Post::find($id);
 
 		if(!$post) {
-			return Redirect::action('PostsController@index');	
+			App::abort(404);	
 		}
 
 		return View::make('posts.show')->with('post', $post);
@@ -84,6 +91,12 @@ class PostsController extends \BaseController {
 	{
 		// edit a specific blog post
 		$post = Post::find($id);
+
+		if(!$post) {
+			Session::flash('errorMessage', 'The post you are looking for does not exist.');
+			App::abort(404);	
+		}
+
 		return View::make('posts.edit')->with('post', $post);
 	}
 
@@ -101,16 +114,29 @@ class PostsController extends \BaseController {
 
 	    // attempt validation
 	    if ($validator->fails()) {
-	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        Session::flash('errorMessage', 'Hmmm...something went wrong. Please check the message(s) below to fix:');
+
 	        return Redirect::back()->withInput()->withErrors($validator);
+
 	    } else {
-			// updates the edited blog post
+
 			$post = Post::find($id);
+
+	    	if(!$post) {
+				Session::flash('errorMessage', 'The post you are looking for does not exist.');
+				App::abort(404);
+			}
+
+			// updates the edited blog post
 			$post->title = Input::get('title');
 			$post->sub_title = Input::get('sub_title');
 			$post->author = Input::get('author');
 			$post->body = Input::get('body');
 			$post->save();
+
+			Log::info('Post updated successfully.');
+
+			Session::flash('successMessage', 'Your post was updated successfully!');
 
 			return View::make('posts.show')->with('post', $post);
 		}
@@ -126,7 +152,17 @@ class PostsController extends \BaseController {
 	public function destroy($id)
 	{
 		// delete specific blog post
-		Post::find($id)->delete();
+		$post = Post::find($id)->delete();
+
+		if(!$post) {
+			Session::flash('errorMessage', 'The post you are looking for does not exist.');
+			App::abort(404);
+		}
+
+		Log::warning('Post was deleted.');
+
+		Session::flash('successMessage', 'Your post was successfully removed.');
+
 		return Redirect::action('PostsController@index');
 	}
 }

@@ -1,59 +1,56 @@
 @extends('layouts.master')
 
 @section('head')
-
-<link rel="stylesheet" type="text/css" href="/css/posts_index.css">
+    <link rel="stylesheet" type="text/css" href="/css/posts_index.css">
+@stop
 
 @section('header')
-
-<!-- Page Header -->
-<!-- Set your background image for this header on the line below. -->
-<header class="intro-header" style="background-image: url('/img/blog_index.jpg')">
+    <!-- Page Header -->
+    <header class="intro-header" style="background-image: url('/img/blog_index.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Dave's Blog</h1>
+                        <hr class="small">
+                        <span class="subheading">Blog Index</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+@stop
+    
+@section('content')
+    <!-- Main Content -->
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Dave's Blog</h1>
-                    <hr class="small">
-                    <span class="subheading">Blog Index</span>
+                <div class="post-preview">
+                    
+                    @foreach ($posts as $post)
+                    <a href="{{{ action('PostsController@show', $post->id) }}}">
+                        <h2 class="post-title">{{{ $post->title }}}</h2>
+                        <h3 class="post-subtitle">{{{ $post->sub_title }}}</h3>
+                    </a>
+                    <p class="post-meta">
+                        @if ($post->created_at != $post->updated_at) 
+                            {{{ 'Updated by ' }}}
+                        @else
+                            {{{ 'Posted by ' }}}
+                        @endif
+              
+                        <a href="#">{{{ $post->author }}}</a> {{{ $post->updated_at->setTimezone('America/Chicago')->subMinutes(1)->diffForHumans() }}}
+                    </p>
+                    <hr>
+                    @endforeach
+                    
+                </div>
+                <!-- Pager -->
+                <div id="paginator">
+                    {{ $posts->links() }}
                 </div>
             </div>
         </div>
     </div>
-</header>
-    
-@section('content')
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-preview">
-                
-                @foreach ($posts as $post)
-                <a href="{{{ action('PostsController@show', $post->id) }}}">
-                    <h2 class="post-title">{{{ $post->title }}}</h2>
-                    <h3 class="post-subtitle">{{{ $post->sub_title }}}</h3>
-                </a>
-                <p class="post-meta">
-                    @if ($post->created_at != $post->updated_at) 
-                        {{{ 'Updated by ' }}}
-                    @else
-                        {{{ 'Posted by ' }}}
-                    @endif
-          
-                    <a href="#">{{{ $post->author }}}</a> {{{ $post->updated_at->setTimezone('America/Chicago')->subMinutes(1)->diffForHumans() }}}
-                </p>
-                <hr>
-                @endforeach
-                
-            </div>
-            <!-- Pager -->
-            <div id="paginator">
-                {{ $posts->links() }}
-            </div>
-        </div>
-    </div>
-</div>
-
 @stop
