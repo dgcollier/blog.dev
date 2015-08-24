@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
 	@include('head')
@@ -9,23 +9,11 @@
 	<header>
 		@include('header')
 		@yield('header')
+        @include('errors')
     </header>
 
-        
     <main>
-        <section>
-            <div class="container">
-                @if($errors->has())
-                    @foreach($errors->all() as $error)
-                        <ul>
-                            <li class="errors alert alert-danger" role="alert">{{{ $error }}}</li>
-                        </ul>
-                    @endforeach
-                @endif
-            </div>
-        </section>
 	    @yield('content')
-
     </main>
 
     <footer>

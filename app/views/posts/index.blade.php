@@ -8,7 +8,7 @@
 
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
-<header class="intro-header" style="background-image: url('img/blog_index.jpg')">
+<header class="intro-header" style="background-image: url('/img/blog_index.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -42,7 +42,7 @@
                         {{{ 'Posted by ' }}}
                     @endif
           
-                    <a href="#">{{{ $post->author }}}</a> {{{ $post->updated_at->setTimezone('America/Chicago')->diffForHumans() }}}
+                    <a href="#">{{{ $post->author }}}</a> {{{ $post->updated_at->setTimezone('America/Chicago')->subMinutes(1)->diffForHumans() }}}
                 </p>
                 <hr>
                 @endforeach

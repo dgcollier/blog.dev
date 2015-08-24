@@ -126,7 +126,7 @@ class PostsController extends \BaseController {
 	public function destroy($id)
 	{
 		// delete specific blog post
-		$post = Post::find($id);
-		return "Deletes a blog post by id ($id).";
+		Post::find($id)->delete();
+		return Redirect::action('PostsController@index');
 	}
 }

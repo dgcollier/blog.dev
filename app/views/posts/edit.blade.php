@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
 @section('head')
+    <link rel="stylesheet" type="text/css" href="/css/create.css">
+@stop
 
-<link rel="stylesheet" type="text/css" href="/css/create.css">
-
-@section('content')
+@section('header')
 
 <header class="intro-header" style="background-image: url('/img/blog_add.jpg')">
     <div class="container">
@@ -17,6 +17,9 @@
         </div>
     </div>
 </header>
+@stop
+
+@section('content')
 
 <!-- Main Content -->
 <div class="container">
@@ -25,10 +28,16 @@
         	<!-- Form to Add Park to Database -->
             {{ Form::model($post, array('action' => array('PostsController@update', $post->id), 'method' => 'PUT', 'class' => 'form-horizontal', 'id' => 'editPost')) }}
 	            <div id="editForm" class="form-group col-xs-12">
-	                <h2>Edit:</h2>
-	                <div><input type="text" id="title" class="input" name="title" placeholder="Title" value="{{{ $post->title }}}" autofocus></div>
-	                <div><input type="text" id="sub_title" class="input" name="sub_title" placeholder="Sub-header" value="{{{ $post->sub_title }}}"></div>
-	                <div><input type="text" id="author" class="input" name="author" placeholder="Author" value="{{{ $post->author }}}"></div>
+                
+	                <div>
+                        <input type="text" id="title" class="input" name="title" placeholder="Title" value="{{{ $post->title }}}" autofocus>
+                    </div>
+	                <div>
+                        <input type="text" id="sub_title" class="input" name="sub_title" placeholder="Sub-header" value="{{{ $post->sub_title }}}">
+                    </div>
+	                <div>
+                        <input type="text" id="author" class="input" name="author" placeholder="Author" value="{{{ $post->author }}}">
+                    </div>
 	                
 	                <textarea id="body" class="input form-control" name="body" placeholder="Post Body" rows="15">{{{ $post->body }}}</textarea>
 
@@ -45,9 +54,8 @@
         </div>
     </div>
 </div>
+@stop
 
 @section('script')
-
-{{-- <script src="/js/backBtn.js"></script> --}}
-
+    {{-- <script src="/js/backBtn.js"></script> --}}
 @stop

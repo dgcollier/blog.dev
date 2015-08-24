@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
 @section('head')
-
-<link rel="stylesheet" type="text/css" href="/css/create.css">
+    <link rel="stylesheet" type="text/css" href="/css/create.css">
+@stop
 
 @section('header')
 
@@ -17,6 +17,7 @@
         </div>
     </div>
 </header>
+@stop
 
 @section('content')
 
@@ -27,18 +28,17 @@
         	<!-- Form to Add Park to Database -->
 	        {{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal', 'id' => 'createPost')) }}
 	            <div id="createForm" class="form-group col-xs-12">
-	                <h2>Add a Post:</h2>
-	                <div class="@if($errors->has('title')) has-error @endif">  
+	                <div>
                         <input type="text" id="title" class="input" name="title" placeholder="Title" value="{{{ Input::old('title') }}}" autofocus>
                     </div>
-	                <div class="@if($errors->has('title')) has-error @endif">
+	                <div>
                         <input type="text" id="sub_title" class="input" name="sub_title" placeholder="Sub-header" value="{{{ Input::old('sub_title') }}}">
                     </div>
-	                <div class="@if($errors->has('title')) has-error @endif">
+	                <div>
                         <input type="text" id="author" class="input" name="author" placeholder="Author" value="{{{ Input::old('author') }}}">
                     </div>
 	                
-                    <div class="@if($errors->has('title')) has-error @endif">
+                    <div>
                         <textarea id="body" class="input form-control" name="body" placeholder="Post Body" rows="15"></textarea>
                     </div>
 
@@ -53,9 +53,8 @@
         </div>
     </div>
 </div>
+@stop
 
 @section('script')
-
-<script src="/js/backBtn.js"></script>
-
+    <script src="/js/backBtn.js"></script>
 @stop
