@@ -53,7 +53,7 @@ class PostsController extends BaseController {
 			$post->body = Input::get('body');
 			$post->save();
 
-			Log::info('Post: ' . $post->title . ' created.', array('newPost' => Input::all()));
+			Log::info('Post: ' . $post->title . ' with id: ' . $post->id . ' created.', array('newPost' => Input::all()));
 
 			Session::flash('successMessage', 'Your post was created successfully!');
 
@@ -134,7 +134,7 @@ class PostsController extends BaseController {
 			$post->body = Input::get('body');
 			$post->save();
 
-			Log::info('Post updated successfully.');
+			Log::info('Post ' . $post->id . ' updated successfully.');
 
 			Session::flash('successMessage', 'Your post was updated successfully!');
 

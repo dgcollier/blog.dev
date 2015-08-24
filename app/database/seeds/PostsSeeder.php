@@ -6,7 +6,7 @@
 	{
 		public function run()
 		{
-			// Post::truncate();
+			Post::truncate();
 
 			$faker = Faker::create();
 
