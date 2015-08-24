@@ -10,7 +10,15 @@
                 <div class="post-heading">
                     <h1>{{{ $post->title }}}</h1>
                     <h2 class="subheading">{{{ $post->sub_title }}}</h2>
-                    <span class="meta">Posted by <a href="#">{{{ $post->author}}}</a> on {{{ $post->updated_at }}}</span>
+                    <span class="meta">
+                        @if ($post->created_at != $post->updated_at) 
+                            {{{ 'Updated by ' }}}
+                        @else
+                            {{{ 'Posted by ' }}}
+                        @endif
+
+                        <a href="#">{{{ $post->author}}}</a> on {{{ $post->updated_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i A') }}}
+                    </span>
                 </div>
             </div>
         </div>

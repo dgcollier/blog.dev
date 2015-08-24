@@ -28,8 +28,8 @@
 	        {{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal', 'id' => 'createPost')) }}
 	            <div id="createForm" class="form-group col-xs-12">
 	                <h2>Add a Post:</h2>
-	                <div class="@if($errors->has('title')) has-error @endif">
-                        <input type="text" id="title" class="input" name="title" placeholder="Title" value="{{{ Input::old('title') }}}"autofocus>
+	                <div class="@if($errors->has('title')) has-error @endif">  
+                        <input type="text" id="title" class="input" name="title" placeholder="Title" value="{{{ Input::old('title') }}}" autofocus>
                     </div>
 	                <div class="@if($errors->has('title')) has-error @endif">
                         <input type="text" id="sub_title" class="input" name="sub_title" placeholder="Sub-header" value="{{{ Input::old('sub_title') }}}">
@@ -39,8 +39,7 @@
                     </div>
 	                
                     <div class="@if($errors->has('title')) has-error @endif">
-                        <textarea id="body" class="input form-control" name="body" placeholder="{{{ !Input::old('body') ?  'Post Body' : Input::old('body') }}}" rows="15">
-                        </textarea>
+                        <textarea id="body" class="input form-control" name="body" placeholder="Post Body" rows="15"></textarea>
                     </div>
 
 	                <div class="row">

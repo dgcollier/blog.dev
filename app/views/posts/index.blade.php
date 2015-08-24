@@ -36,7 +36,13 @@
                     <h3 class="post-subtitle">{{{ $post->sub_title }}}</h3>
                 </a>
                 <p class="post-meta">
-                    Posted by <a href="#">{{{ $post->author }}}</a> on {{{ $post->updated_at }}}
+                    @if ($post->created_at != $post->updated_at) 
+                        {{{ 'Updated by ' }}}
+                    @else
+                        {{{ 'Posted by ' }}}
+                    @endif
+          
+                    <a href="#">{{{ $post->author }}}</a> {{{ $post->updated_at->setTimezone('America/Chicago')->diffForHumans() }}}
                 </p>
                 <hr>
                 @endforeach
