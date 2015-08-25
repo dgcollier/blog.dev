@@ -6,16 +6,13 @@
 	{
 		public function run()
 		{
-			Post::truncate();
-
 			$faker = Faker::create();
 
-
-			for($i=0; $i<100; $i++) {
+			for($i=0; $i<50; $i++) {
 				$post = new Post();
 				$post->title = $faker->catchPhrase;
 				$post->sub_title = $faker->bs;
-				$post->author = $faker->name;
+				$post->user_id = User::all()->random(1)->id;
 				$post->body = $faker->text;
 				$post->save();
 			}

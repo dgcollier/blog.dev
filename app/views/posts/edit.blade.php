@@ -33,9 +33,6 @@
     	                <div>
                             <input type="text" id="sub_title" class="input" name="sub_title" placeholder="Sub-header" value="{{{ $post->sub_title }}}">
                         </div>
-    	                <div>
-                            <input type="text" id="author" class="input" name="author" placeholder="Author" value="{{{ $post->author }}}">
-                        </div>
     	                
     	                <textarea id="body" class="input form-control" name="body" placeholder="Post Body" rows="15">{{{ $post->body }}}</textarea>
 

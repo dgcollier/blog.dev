@@ -11,7 +11,7 @@ class PostsController extends BaseController {
 	{
 		Session::put('page', Input::get('page'));
 		// show all posts
-		$posts = Post::orderBy('updated_at','desc')->paginate(4);
+		$posts = Post::with('user')->orderBy('updated_at','desc')->paginate(4);
 		return View::make('posts.index')->with('posts', $posts);
 	}
 
@@ -49,7 +49,6 @@ class PostsController extends BaseController {
 			$post = new Post();
 			$post->title = Input::get('title');
 			$post->sub_title = Input::get('sub_title');
-			$post->author = Input::get('author');
 			$post->body = Input::get('body');
 			$post->save();
 
@@ -130,7 +129,6 @@ class PostsController extends BaseController {
 			// updates the edited blog post
 			$post->title = Input::get('title');
 			$post->sub_title = Input::get('sub_title');
-			$post->author = Input::get('author');
 			$post->body = Input::get('body');
 			$post->save();
 
