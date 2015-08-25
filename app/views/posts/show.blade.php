@@ -36,11 +36,16 @@
                     <a href="{{{ action('PostsController@index') }}}">  
                         <button id="backBtn" class="btn btn-default"><< Back</button>
                     </a>
+
+                    @if(Auth::check() && Auth::id() == $post->user_id)
+
                     <a href="{{{ action('PostsController@edit', $post->id) }}}">
                         <input class="btn btn-default" value="Edit >>">
                     </a>
                     
                     <button class="btn btn-default" id="delete">Delete >></button>
+
+                    @endif
                 </div>
 
                 {{ Form::open(array('action' => array('PostsController@destroy', $post->id), 'method' => 'DELETE', 'id' => 'formDelete')) }}

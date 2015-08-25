@@ -8,3 +8,16 @@
     color: #fff;
     background-color: transparent;
 }
+
+#searchBar {
+	margin-left: 28%;
+	display: inline;
+	margin-top: 20px;
+	width: 25%;
+}
+
+#bs-example-navbar-collapse-1,
+form,
+input {
+	display: inline;
+}

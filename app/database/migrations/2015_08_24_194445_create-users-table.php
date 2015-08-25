@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration {
 			$table->string('last_name', 255)->nullable();
 			$table->string('username', 32)->unique();
 			$table->string('password', 255);
+			$table->rememberToken();
 			$table->timeStamps();
 			$table->softDeletes();
 		});

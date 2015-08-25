@@ -5,12 +5,15 @@
 @stop
 
 @section('header')
-    <header class="intro-header" style="background-image: url('/img/blog_add.jpg')">
+    <!-- Page Header -->
+    <header class="intro-header" style="background-image: url('/img/blog_login.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Add a New Post</h1>
+                        <h1>Log In Here</h1>
+                        <hr class="small">
+                        <span class="subheading">Dave's Blog</span>
                     </div>
                 </div>
             </div>
@@ -24,16 +27,11 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             	<!-- Form to Add Park to Database -->
-    	        {{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal', 'id' => 'createPost')) }}
-    	            <div id="createForm" class="form-group col-xs-12">
-    	                <div>
-                            <input type="text" id="title" class="input" name="title" placeholder="Title" value="{{{ Input::old('title') }}}" autofocus>
-                        </div>
-    	                <div>
-                            <input type="text" id="sub_title" class="input" name="sub_title" placeholder="Sub-header" value="{{{ Input::old('sub_title') }}}">
-                        </div>
-                        <div>
-                            <textarea id="body" class="input form-control" name="body" placeholder="Post Body" rows="15"></textarea>
+    	        {{ Form::open(array('action' => 'HomeController@doLogin', 'class' => 'form-horizontal', 'id' => 'login')) }}
+    	            <div id="loginForm" class="form-group col-xs-12">
+    	                <div class="row">
+                            <input type="text" id="username" class="input" name="username" placeholder="Username" value="{{{ Input::old('title') }}}" autofocus>
+                            <input type="password" id="password" class="input" name="password" placeholder="Password" value="{{{ Input::old('sub_title') }}}">
                         </div>
 
     	                <div class="row">
@@ -47,8 +45,4 @@
             </div>
         </div>
     </div>
-@stop
-
-@section('script')
-    <script src="/js/backBtn.js"></script>
 @stop

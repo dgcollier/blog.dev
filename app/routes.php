@@ -15,11 +15,14 @@
 // HOME
 Route::get('/', 'HomeController@showHome');
 
+// LOGIN
+Route::get('login', 'HomeController@showLogin');
+
+// LOGOUT
+Route::get('logout', 'HomeController@doLogout');
+
 // ABOUT
 Route::get('/about', 'HomeController@showAbout');
-
-// SEARCH
-Route::get('/search', 'HomeController@showSearch');
 
 // CONTACT
 Route::get('/contact', 'HomeController@showContact');
@@ -35,6 +38,10 @@ Route::get('/sayhello/{name?}', 'HomeController@sayHello');
 
 // ROLLDICE
 Route::get('/rolldice/{userGuess?}', 'HomeController@showRolldice');
+
+// POST
+// LOGIN
+Route::post('login', 'HomeController@doLogin');
 
 
 // RESOURCE

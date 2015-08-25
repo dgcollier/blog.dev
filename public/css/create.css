@@ -3,7 +3,8 @@
 }
 
 #createPost,
-#editPost {
+#editPost,
+#login {
     text-align: center;
 }
 

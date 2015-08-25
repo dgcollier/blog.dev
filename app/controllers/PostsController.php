@@ -3,15 +3,42 @@
 class PostsController extends BaseController {
 
 	/**
+	 * Set up filters.
+	 *
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->beforeFilter('auth', array('except' => array('index', 'show')));	
+	}
+
+	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		Session::put('page', Input::get('page'));
+		// Session::put('page', Input::get('page'));
 		// show all posts
-		$posts = Post::with('user')->orderBy('updated_at','desc')->paginate(4);
+		$query = Post::with('user');
+
+		$search = Input::get('search');
+
+		if($search) {
+			$query->where('title', 'like', "%$search%");
+
+			$query->orWhere('sub_title', 'like', "%$search%");
+
+			$query->orWhere('body', 'like', "%$search%");
+
+			$query->orWhereHas('user', function($q) use ($search) {
+				$q->where('username', 'like', "%$search%");
+			});
+		}
+
+		$posts = $query->orderBy('updated_at','desc')->paginate(4);
+
 		return View::make('posts.index')->with('posts', $posts);
 	}
 
@@ -50,6 +77,7 @@ class PostsController extends BaseController {
 			$post->title = Input::get('title');
 			$post->sub_title = Input::get('sub_title');
 			$post->body = Input::get('body');
+			$post->user_id = Auth::id();
 			$post->save();
 
 			Log::info('Post: ' . $post->title . ' with id: ' . $post->id . ' created.', array('newPost' => Input::all()));
@@ -90,6 +118,12 @@ class PostsController extends BaseController {
 	{
 		// edit a specific blog post
 		$post = Post::find($id);
+		$user = $post->user->user_id;
+
+		if(Auth::id() != $user)
+			Session::flash('errorMessage', 'You are not authorized to edit this post.');
+			Log::warning('User ' . $user . ' tried to delete post ' . $post->id .  ' without authorization.');
+			return Redirect::action('PostsController@index');
 
 		if(!$post) {
 			Session::flash('errorMessage', 'The post you are looking for does not exist.');

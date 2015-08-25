@@ -16,22 +16,34 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+           {{ Form::open(array('action' => 'PostsController@index', 'method' => 'GET')) }}
+                <input type="text" class="form-control" id="searchBar" name="search" placeholder="Search for..." autofocus>
+            {{ Form::close() }}
             <ul class="nav navbar-nav navbar-right">
+                @if(Auth::check())
                 <li>
-                    <a href="/about">About</a>
+                    <a href="">Welcome, {{{ Auth::user()->username }}}!</a>
                 </li>
                 <li>
-                    <a href="/search">Search</a>
+                    <a href="{{{ action('HomeController@doLogout') }}}">Log Out</a>
                 </li>
+                @else
                 <li>
-                    <a href="/contact">Contact</a>
+                    <a href="{{{ action('HomeController@showLogin') }}}">Log In</a>
                 </li>
+                @endif
+
                 <li class="dropdown" id="wtf">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Misc.<span class="caret"></span></a>
                   <ul class="dropdown-menu nav navbar-nav navbar-right">
                     <li>
-                        <a href="/portfolio">Portfolio</a>
+                        <a href="/about">About</a>
                     </li>
+
+                    <li>
+                        <a href="/contact">Contact</a>
+                    </li>
+                
                     <li>
                         <a href="/rolldice/1">Rolldice</a>
                     </li>
