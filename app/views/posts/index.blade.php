@@ -40,7 +40,7 @@
                             {{{ 'Posted by ' }}}
                         @endif
               
-                        <a href="#">{{{ $post->user->username }}}</a> {{{ $post->updated_at->setTimezone('America/Chicago')->subMinutes(1)->diffForHumans() }}}
+                        <a href="{{{ action('UsersController@show', $post->user->id) }}}">{{{ $post->user->username }}}</a> {{{ $post->updated_at->setTimezone('America/Chicago')->subMinutes(1)->diffForHumans() }}}
                     </p>
                     <hr>
                     @endforeach

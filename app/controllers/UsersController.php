@@ -9,7 +9,7 @@ class UsersController extends BaseController {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->beforeFilter('auth', array('except' => array('create', 'store')));	
+		$this->beforeFilter('auth', array('except' => array('create', 'store', 'show')));	
 	}
 
 	/**
@@ -80,8 +80,7 @@ class UsersController extends BaseController {
 	public function show($id)
 	{
 		// display user profile by id
-		$id = Auth::id();
-
+	
 		$user = User::find($id);
 
 		if(!$user) {
