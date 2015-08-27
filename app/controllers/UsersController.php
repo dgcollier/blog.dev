@@ -9,7 +9,7 @@ class UsersController extends BaseController {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->beforeFilter('auth', array('except' => array('create')));	
+		$this->beforeFilter('auth', array('except' => array('create', 'store')));	
 	}
 
 	/**
@@ -53,21 +53,22 @@ class UsersController extends BaseController {
 			Log::info('User create failed');
 	        return Redirect::back()->withInput()->withErrors($validator);
 
-	    } else {
-	        // validation succeeded, create and save the user
-			$user = new User();
-			$user->first_name = Input::get('first_name');
-			$user->last_name = Input::get('last_name');
-			$user->username = Input::get('username');
-			$user->password = Input::get('password');
-			$user->save();
-
-			Log::info('User id: ' . $user->id . ' created.', array('newUser' => Input::all()));
-
-			Session::flash('successMessage', 'Your account was created successfully!');
-
-			return Redirect::action('HomeController@showHome');
 	    }
+	        
+        // validation succeeded, create and save the user
+		$user = new User();
+		$user->first_name = Input::get('first_name');
+		$user->last_name = Input::get('last_name');
+		$user->username = Input::get('username');
+		$user->password = Input::get('password');
+		$user->save();
+
+		Log::info('User id: ' . $user->id . ' created.', array('newUser' => Input::get('username')));
+
+		Session::flash('successMessage', 'Your account was created successfully! Please log in below:');
+
+		return Redirect::action('HomeController@showLogin');
+
 	}
 
 	/**
@@ -79,6 +80,8 @@ class UsersController extends BaseController {
 	public function show($id)
 	{
 		// display user profile by id
+		$id = Auth::id();
+
 		$user = User::find($id);
 
 		if(!$user) {
@@ -97,13 +100,14 @@ class UsersController extends BaseController {
 	 */
 	public function edit($id)
 	{
+		$id = Auth::id();
 		// edit a specific user
 		$user = User::find($id);
 
-		if(Auth::id() != $user)
+		if(Auth::id() != $user->id)
 			Session::flash('errorMessage', 'You are not authorized to edit this profile.');
 			Log::warning('User ' . Auth::id() . ' tried to edit account ' . $user .  ' without authorization.');
-			return Redirect::action('UsersController@show');
+			Redirect::action('UsersController@show');
 
 		if(!$user) {
 			Session::flash('errorMessage', 'The user you are looking for does not exist.');
@@ -123,36 +127,44 @@ class UsersController extends BaseController {
 	public function update($id)
 	{
 		// create the validator
-	    $validator = Validator::make(Input::all(), User::$rules);
+	    $validator = Validator::make(Input::all(), User::$editRules);
+
+		$user = User::find($id);
+		$password = Input::get('password');
 
 	    // attempt validation
 	    if ($validator->fails()) {
 	        Session::flash('errorMessage', 'Hmmm...something went wrong. Please check the message(s) below to fix:');
-
 	        return Redirect::back()->withInput()->withErrors($validator);
-
-	    } else {
-
-			$user = User::find($id);
-
-	    	if(!$user) {
-				Session::flash('errorMessage', 'The user you are looking for does not exist.');
-				App::abort(404);
-			}
-
-			// updates the edited user
-			$user->first_name = Input::get('first_name');
-			$user->last_name = Input::get('last_name');
-			$user->username = Input::get('username');
-			$user->password = Input::get('password');
-			$user->save();
-
-			Log::info('User ' . $user->id . ' updated successfully.');
-
-			Session::flash('successMessage', 'Your account was updated successfully!');
-
-			return View::make('user.show')->with('user', $user);
+	    } else if(!$user) {
+			Session::flash('errorMessage', 'The user you are looking for does not exist.');
+			App::abort(404);
+		} else if ((Auth::attempt(array('password' => $password)))) {
+			Session::flash('errorMessage', 'Your password was incorrect.');
+			return Redirect::back()->withInput()->withErrors($validator);
+		} else if ((Input::has('newPass') || Input::has('newPassConfirm')) && (Input::get('newPass') != Input::get('newPassConfirm'))) {
+			Session::flash('errorMessage', 'Your passwords did not match');
+			return Redirect::back()->withInput()->withErrors($validator);
 		}
+ 
+		// updates the edited user
+		$user->first_name = Input::get('first_name');
+		$user->last_name = Input::get('last_name');
+		$user->username = Input::get('username');
+
+		if (Input::has('newPass')) {
+			$user->password = Input::get('newPass');
+			Session::flash('successMessage', 'Your password was updated.');
+		}
+
+		$user->save();
+
+		Log::info('User ' . $user->id . ' updated successfully.');
+
+		Session::flash('successMessage', 'Your account was updated successfully!');
+
+		return View::make('user.show')->with('user', $user);
+	
 	}
 
 
@@ -164,8 +176,14 @@ class UsersController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		// delete specific user account
+		$id = Auth::id();
+
+		// delete user's posts
+		Post::where('user_id', Auth::id())->delete();
+
+		// delete user account
 		$user = User::find($id)->delete();
+		Auth::logout();
 
 		if(!$user) {
 			Session::flash('errorMessage', 'The user you are looking for does not exist.');
@@ -174,8 +192,9 @@ class UsersController extends BaseController {
 
 		Log::info('User was deleted.');
 
-		Session::flash('successMessage', 'Your account was successfully deleted.');
+		Session::flash('successMessage', 'Your account and posts were successfully deleted.');
 
-		return Redirect::action('PostsController@index');
+
+		return Redirect::action('HomeController@showHome');
 	}
 }

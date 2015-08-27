@@ -36,7 +36,7 @@
                             <input type="text" id="username" class="input" name="username" placeholder="Username" value="{{{ Input::old('username') }}}">
                         </div>
                         <div>
-                            <input type="text" id="password" class="input" name="password" placeholder="Password">
+                            <input type="password" id="password" class="input" name="password" placeholder="Password">
                         </div>
                         
     	                <div class="row">

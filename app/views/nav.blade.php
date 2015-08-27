@@ -22,7 +22,7 @@
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
                 <li>
-                    <a href="{{{ action('HomeController@showProfile') }}}">Welcome, {{{ Auth::user()->username }}}!</a>
+                    <a href="{{{ action('UsersController@show', Auth::id()) }}}">Welcome, {{{ Auth::user()->username }}}!</a>
                 </li>
                 <li>
                     <a href="{{{ action('HomeController@doLogout') }}}">Log Out</a>

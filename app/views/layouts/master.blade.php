@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
 	@include('head')
@@ -7,7 +6,7 @@
 </head>
 <body>
 	<header>
-		@include('header')
+		@include('nav')
 		@yield('header')
         @include('messages')
         @include('errors')
