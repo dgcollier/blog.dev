@@ -45,6 +45,7 @@
 	                    <button class="btn btn-default" id="delete">Delete >></button>
                     @endif
 
+
                 </div>
                 {{ Form::open(array('action' => array('UsersController@destroy', Auth::id()), 'method' => 'DELETE', 'id' => 'formDelete')) }}
                 {{ Form::close() }}

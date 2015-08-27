@@ -16,7 +16,9 @@
                                 {{{ 'Posted by ' }}}
                             @endif
 
-                            <a href="#">{{{ $post->user->username }}}</a> on {{{ $post->updated_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i A') }}}
+                            <a href="{{{ action('UsersController@show', $post->user->id) }}}">
+                                {{{ $post->user->username }}}
+                            </a> on {{{ $post->updated_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i A') }}}
                         </span>
                     </div>
                 </div>

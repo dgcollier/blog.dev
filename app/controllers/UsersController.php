@@ -12,6 +12,7 @@ class UsersController extends BaseController {
 		$this->beforeFilter('auth', array('except' => array('create', 'store', 'show')));	
 	}
 
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -21,6 +22,7 @@ class UsersController extends BaseController {
 	{
 		Auth::abort(404);
 	}
+
 
 	/**
 	 * Show the form for creating a new resource.
@@ -36,6 +38,7 @@ class UsersController extends BaseController {
 		}
 		return View::make('user.create');
 	}		
+
 
 	/**
 	 * Store a newly created resource in storage.
@@ -71,6 +74,7 @@ class UsersController extends BaseController {
 
 	}
 
+
 	/**
 	 * Display the specified resource.
 	 *
@@ -80,14 +84,18 @@ class UsersController extends BaseController {
 	public function show($id)
 	{
 		// display user profile by id
-	
 		$user = User::find($id);
+
+		$query = Post::with('user');
+		$query->where('user_id', $user->id);
+
+		$posts = $query->orderBy('updated_at','desc');	
 
 		if(!$user) {
 			App::abort(404);	
 		}
 
-		return View::make('user.show')->with('user', $user);
+		return View::make('user.show')->with(array('user' => $user, 'posts' => $posts));
 	}
 
 
