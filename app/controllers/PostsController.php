@@ -78,6 +78,15 @@ class PostsController extends BaseController {
 			$post->sub_title = Input::get('sub_title');
 			$post->body = Input::get('body');
 			$post->user_id = Auth::id();
+
+			if (Input::hasFile('img_url')) {
+			    $image = Input::file('img_url');
+				$path = "uploads/";
+				$filename = $image->getClientOriginalName();
+				$destination = $image->move($path, $filename);
+				$post->img_url = '/' . $destination;
+			}
+
 			$post->save();
 
 			Log::info('Post: ' . $post->title . ' with id: ' . $post->id . ' created.', array('newPost' => Input::all()));
@@ -118,12 +127,12 @@ class PostsController extends BaseController {
 	{
 		// edit a specific blog post
 		$post = Post::find($id);
-		$user = $post->user->user_id;
+		$user = $post->user->id;
 
 		if(Auth::id() != $user)
 			Session::flash('errorMessage', 'You are not authorized to edit this post.');
-			Log::warning('User ' . $user . ' tried to delete post ' . $post->id .  ' without authorization.');
-			return Redirect::action('PostsController@index');
+			Log::warning('User ' . $user . ' tried to edit post ' . $post->id .  ' without authorization.');
+			Redirect::action('PostsController@index');
 
 		if(!$post) {
 			Session::flash('errorMessage', 'The post you are looking for does not exist.');

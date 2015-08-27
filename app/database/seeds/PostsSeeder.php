@@ -14,6 +14,7 @@
 				$post->sub_title = $faker->bs;
 				$post->user_id = User::all()->random(1)->id;
 				$post->body = $faker->text;
+				$post->img_url = $faker->imageUrl($width = 250, $height = 250);
 				$post->save();
 			}
 

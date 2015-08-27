@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             	<!-- Form to Add Park to Database -->
-    	        {{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal', 'id' => 'createPost')) }}
+    	        {{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal', 'id' => 'createPost', 'enctype' => 'multipart/form-data')) }}
     	            <div id="createForm" class="form-group col-xs-12">
     	                <div>
                             <input type="text" id="title" class="input" name="title" placeholder="Title" value="{{{ Input::old('title') }}}" autofocus>
@@ -32,6 +32,10 @@
     	                <div>
                             <input type="text" id="sub_title" class="input" name="sub_title" placeholder="Sub-header" value="{{{ Input::old('sub_title') }}}">
                         </div>
+                        <div>
+                            <input type="file" class="input" name="img_url">
+                        </div>
+                        
                         <div>
                             <textarea id="body" class="input form-control" name="body" placeholder="Post Body" rows="15"></textarea>
                         </div>

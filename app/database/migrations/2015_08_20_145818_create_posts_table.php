@@ -18,8 +18,7 @@ class CreatePostsTable extends Migration {
 			$table->string('title', 64);
 			$table->string('sub_title', 104);
 			$table->text('body');
-			// $table->integer('user_id')->unsigned();
-			// $table->foreign('user_id')->references('id')->on('users');
+			$table->string('img_url', 128)->nullable();
 			$table->timestamps();
 		});
 	}

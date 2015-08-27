@@ -33,13 +33,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div><img src="{{{ $post->img_url }}}"></div>
+                    
                     <p>{{{ $post->body }}}</p>
 
                     <a href="{{{ action('PostsController@index') }}}">  
                         <button id="backBtn" class="btn btn-default"><< Back</button>
                     </a>
 
-                    @if(Auth::check() && Auth::id() == $post->user_id)
+                    @if(Auth::check() && Auth::id() == $post->user->id)
 
                     <a href="{{{ action('PostsController@edit', $post->id) }}}">
                         <input class="btn btn-default" value="Edit >>">
@@ -48,6 +50,8 @@
                     <button class="btn btn-default" id="delete">Delete >></button>
 
                     @endif
+
+                    <div id="disqus_thread"></div>
                 </div>
 
                 {{ Form::open(array('action' => array('PostsController@destroy', $post->id), 'method' => 'DELETE', 'id' => 'formDelete')) }}
@@ -70,5 +74,14 @@
                 }
             })
         });
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'dgcollier';
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
     </script>
 @stop

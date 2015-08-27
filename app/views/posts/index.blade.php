@@ -27,6 +27,11 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
+
+                    @if(Auth::check())
+                    <h3><a class="post-subtitle" href="/posts/create">Create Blog Post</a></h3>
+                    <hr>
+                    @endif
                     
                     @foreach ($posts as $post)
                     <a href="{{{ action('PostsController@show', $post->id) }}}">
