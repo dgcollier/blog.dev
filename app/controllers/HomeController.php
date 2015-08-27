@@ -22,6 +22,11 @@ class HomeController extends BaseController {
 
 	public function showLogin()
 	{
+		if(Auth::check()) {
+			Session::flash('errorMessage', 'You are already logged in!');
+			return Redirect::action('HomeController@showHome');
+		}
+
 		return View::make('login');
 	}
 
@@ -31,7 +36,7 @@ class HomeController extends BaseController {
 		$password = Input::get('password');
 		if (Auth::attempt(array('username' => $username, 'password' => $password))) {
 			Session::flash('successMessage', 'Login successful!');
-			return Redirect::intended('/');
+			return Redirect::intended('');
 		} else {
 			//login failed, go back to login screen
 			Session::flash('errorMessage', 'Your username and/or password were incorrect.');

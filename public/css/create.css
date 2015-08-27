@@ -4,7 +4,8 @@
 
 #createPost,
 #editPost,
-#login {
+#login,
+#createUser {
     text-align: center;
 }
 

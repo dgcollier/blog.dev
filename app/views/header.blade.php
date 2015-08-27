@@ -17,17 +17,20 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
            {{ Form::open(array('action' => 'PostsController@index', 'method' => 'GET')) }}
-                <input type="text" class="form-control" id="searchBar" name="search" placeholder="Search for..." autofocus>
+                <input type="text" class="form-control" id="searchBar" name="search" placeholder="Search for...">
             {{ Form::close() }}
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
                 <li>
-                    <a href="">Welcome, {{{ Auth::user()->username }}}!</a>
+                    <a href="{{{ action('HomeController@showProfile') }}}">Welcome, {{{ Auth::user()->username }}}!</a>
                 </li>
                 <li>
                     <a href="{{{ action('HomeController@doLogout') }}}">Log Out</a>
                 </li>
                 @else
+                <li>
+                    <a href="{{{ action('UsersController@create') }}}">Register</a>
+                </li>
                 <li>
                     <a href="{{{ action('HomeController@showLogin') }}}">Log In</a>
                 </li>

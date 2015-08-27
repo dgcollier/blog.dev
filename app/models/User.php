@@ -25,6 +25,13 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	    return $this->hasMany('Post');
 	}
 
+	public static $rules = array(
+	    'first_name'  => 'required|max:32',
+	    'last_name'	  => 'required|max:32',
+	    'username'    => 'required|max:32',
+	    'password'	  => 'required|max:32'
+	);
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

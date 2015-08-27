@@ -16,10 +16,13 @@
 Route::get('/', 'HomeController@showHome');
 
 // LOGIN
-Route::get('login', 'HomeController@showLogin');
+Route::get('/login', 'HomeController@showLogin');
 
 // LOGOUT
-Route::get('logout', 'HomeController@doLogout');
+Route::get('/logout', 'HomeController@doLogout');
+
+//PROFILE
+Route::get('/profile', 'HomeController@showProfile');
 
 // ABOUT
 Route::get('/about', 'HomeController@showAbout');
@@ -47,3 +50,6 @@ Route::post('login', 'HomeController@doLogin');
 // RESOURCE
 // POST
 Route::resource('/posts', 'PostsController');
+
+// USER
+Route::resource('/user', 'UsersController');
