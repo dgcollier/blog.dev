@@ -67,3 +67,7 @@
         </div>
     </div>
 @stop
+
+@section('script')
+    <script src="/js/clean-blog.js"></script>
+@stop

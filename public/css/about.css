@@ -1,0 +1,41 @@
+/* ---------------------------------------------- /*
+ * Skill-bars
+/* ---------------------------------------------- */
+
+.skill-bar {
+	background: #C4C4C4;
+	display: table;
+	height: 5px;
+	width: 100%;
+	margin: 10px -2px 20px -2px;
+}
+
+.skill-bar .skill-rate-on.first {
+	background: #c4505a;
+}
+
+.skill-bar .skill-rate-on.second {
+	background: #c67c53;
+}
+
+.skill-bar .skill-rate-on.third {
+	background: #c9b355;
+}
+
+.skill-bar .skill-rate-on.fourth {
+	background: #439444;
+}
+
+.skill-bar .skill-rate-on.fifth {
+	background: #45ab46;
+}
+
+.skill-bar .skill-rate-on.sixth {
+	background: #48a6c1;
+}
+
+.skill-rate-on, .skill-rate-off {
+	display: table-cell;
+	border-left: 2px solid #FFF;
+	border-right: 2px solid #FFF;
+}
