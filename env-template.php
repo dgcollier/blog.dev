@@ -9,5 +9,8 @@
         'USER_LAST_NAME' => '',
         'USER_USERNAME' => '',
         'USER_PASSWORD' => '',
+
+        'MAILGUN_USER' => '',
+        'MAILGUN_KEY' => '',
     );
 ?>

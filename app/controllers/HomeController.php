@@ -65,8 +65,7 @@ class HomeController extends BaseController {
 
 	public function emailMe()
 	{
-		if(!Input::all() || !filter_var(Input::get('email'),FILTER_VALIDATE_EMAIL)) 
-	    {
+		if(!Input::all()) {
 			Session::flash('errorMessage', 'You were missing some info there...');
 			Redirect::back()->withInput();
 	    }
