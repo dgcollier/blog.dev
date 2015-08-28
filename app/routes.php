@@ -46,6 +46,8 @@ Route::get('/rolldice/{userGuess?}', 'HomeController@showRolldice');
 // LOGIN
 Route::post('login', 'HomeController@doLogin');
 
+Route::post('contact', 'HomeController@emailMe');
+
 
 // RESOURCE
 // POST

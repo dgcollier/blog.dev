@@ -63,6 +63,31 @@ class HomeController extends BaseController {
 		return View::make('contact');
 	}
 
+	public function emailMe()
+	{
+		if(!Input::all() || !filter_var(Input::get('email'),FILTER_VALIDATE_EMAIL)) 
+	    {
+			Session::flash('errorMessage', 'You were missing some info there...');
+			Redirect::back()->withInput();
+	    }
+		
+		$name = Input::get('name');
+		$email_address = Input::get('email');
+		$phone = Input::get('phone');
+		$message = Input::get('message');
+			
+		// Create the email and send the message
+		$to = 'david@gcollier.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+		$email_subject = "Website Contact Form:  $name";
+		$email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nMessage:\n$message";
+		$headers = "From: noreply@gcollier.me\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+		$headers .= "Reply-To: $email_address";	
+		mail($to,$email_subject,$email_body,$headers);
+
+		Session::flash('successMessage', 'Your email was sent to the developer.');
+		return Redirect::action('HomeController@showHome');			
+	}
+
 	public function showResume()
 	{
 		return View::make('resume');
