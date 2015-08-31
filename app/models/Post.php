@@ -13,6 +13,16 @@ class Post extends BaseModel
 	    return $this->belongsTo('User');
 	}
 
+	public function postTag()
+	{
+	    return $this->belongsToMany('PostTag');
+	}
+
+
+	/**
+	 * Rules
+	 *
+	 */
 	public static $rules = array(
 	    'title'      => 'required|max:64',
 	    'sub_title'	 => 'required|max:104',

@@ -12,7 +12,6 @@ class CreateUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		//
 		Schema::create('users', function(Blueprint $table)
 		{
 			$table->increments('id');
@@ -21,7 +20,7 @@ class CreateUsersTable extends Migration {
 			$table->string('username', 32)->unique();
 			$table->string('password', 255);
 			$table->rememberToken();
-			$table->timeStamps();
+			$table->timestamps();
 			$table->softDeletes();
 		});
 	}
@@ -33,7 +32,6 @@ class CreateUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		//
 		Schema::drop('users');
 	}
 
