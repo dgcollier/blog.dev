@@ -140,10 +140,15 @@ class PostsController extends BaseController {
 	{
 		// display post by id
 		$post = Post::find($id);
+		$Parsedown = new Parsedown();
 
 		if(!$post) {
 			App::abort(404);	
 		}
+
+		$body = $post->body;
+		$parse = new Parsedown();
+		$post->body = $parse->text($body);
 
 		return View::make('posts.show')->with('post', $post);
 	}
@@ -207,7 +212,7 @@ class PostsController extends BaseController {
 			$post->body = Input::get('body');
 
 			if (Input::hasFile('img_url')) {
-			    $image = Input::file('img_url');
+			    $image = Image::make(Input::file('img_url')->resize(250, null));
 				$path = "uploads/";
 				$filename = $image->getClientOriginalName();
 				$destination = $image->move($path, $filename);
@@ -260,8 +265,16 @@ class PostsController extends BaseController {
 	 */
 	public function destroy($id)
 	{
+		$post = Post::find($id);
+
+		// delete foreign keys from post_tag table
+		foreach($post->tags as $tag) {
+			$tag->pivot->delete();
+		}
+
 		// delete specific blog post
-		$post = Post::find($id)->delete();
+		$post->delete();
+
 
 		if(!$post) {
 			Session::flash('errorMessage', 'The post you are looking for does not exist.');

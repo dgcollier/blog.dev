@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('head')
+    <link rel="stylesheet" type="text/css" href="/css/posts_show.css">
+@stop
+
 @section('header')
     <!-- Page Header -->
     <header class="intro-header" style="background-image: url('/img/blog_post.jpg')">
@@ -35,7 +39,15 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div><img src="{{{ $post->img_url }}}"></div>
                     
-                    <p>{{{ $post->body }}}</p>
+                    <p>{{ $post->body }}</p>
+
+                    <p>
+                        @foreach ($post->tags as $tag)
+                            <a class="tags" href="#">
+                                <span>#{{{$tag->name }}}</span>
+                            </a>
+                        @endforeach
+                    </p>
 
                     <a href="{{{ action('PostsController@index') }}}">  
                         <button id="backBtn" class="btn btn-default"><< Back</button>

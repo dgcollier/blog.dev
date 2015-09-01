@@ -39,7 +39,8 @@ ul {
     padding-left: 0px;
 }
 
-#img_url {
+#img_url,
+#img-url-title {
     margin-left: auto;
     margin-right: auto;
 }

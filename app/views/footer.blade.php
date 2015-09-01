@@ -26,6 +26,14 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a href="https://instagram.com/dgcollier/" target="_blank">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
             </ul>
             <p class="copyright text-muted">Copyright © David Collier 2015</p>
         </div>

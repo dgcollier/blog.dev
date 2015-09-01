@@ -48,7 +48,7 @@
                         </a>
                         <p class="post-meta">
                             @foreach ($post->tags as $tag)
-                                <a href="#">
+                                <a href="{{{ action('PostsController@index') }}}">
                                     <button class="tags btn btn-default">
                                         #{{{ $tag->name }}}
                                     </button>

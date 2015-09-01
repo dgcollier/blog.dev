@@ -11,7 +11,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Dave's Blog</a>
+            <a class="navbar-brand" href="/">DGCOLLIER.COM</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

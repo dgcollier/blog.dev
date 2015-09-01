@@ -28,17 +28,24 @@
     	            <div id="editForm" class="form-group col-xs-12">
                     
     	                <div>
+                            <label for="title">Title</label>
                             <input type="text" id="title" class="input" name="title" placeholder="Title" value="{{{ $post->title }}}" autofocus>
                         </div>
     	                <div>
+                            <label for="sub_title">Headline</label>
                             <input type="text" id="sub_title" class="input" name="sub_title" placeholder="Sub-header" value="{{{ $post->sub_title }}}">
                         </div>
     	                <div>
+                            <label id="img-url-title" for="img_url">Image Upload</label>
                             <input type="file" class="input" name="img_url" id="img_url" value="{{{ $post->img_url }}}">
                         </div>
-    	                <textarea id="body" class="input form-control" name="body" placeholder="Post Body" rows="15">
-                            {{{ $post->body }}}
-                        </textarea>
+    	                <div class="wmd-panel">
+                            <label for="body">Body</label>
+                            <div id="wmd-button-bar"></div>
+                            <textarea class="wmd-input form-control" name="body" cols="50" rows="10" id="wmd-input">{{{ $post->body }}}</textarea>
+                        </div>
+                        <label>Preview:</label>
+                        <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
                         <div>
                             <input type="text" id="tags" class="input" name="tags" placeholder="#Tags" 
                             value="@foreach ($post->tags as $tag) {{{ $tag->name }}}, @endforeach">
@@ -61,4 +68,17 @@
 
 @section('script')
     {{-- <script src="/js/backBtn.js"></script> --}}
+    <script src="/js/Markdown.Converter.js"></script>
+    <script src="/js/Markdown.Sanitizer.js"></script>
+    <script src="/js/Markdown.Editor.js"></script>
+    <script type="text/javascript">
+        (function () {
+            
+            var converter = new Markdown.Converter();
+            
+            var editor = new Markdown.Editor(converter);
+            
+            editor.run();
+        })();
+    </script>
 @stop

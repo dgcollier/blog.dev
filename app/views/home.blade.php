@@ -7,9 +7,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Dave's Blog</h1>
+                        <h1>D. G. COLLIER</h1>
                         <hr class="small">
-                        <span class="subheading">A Blog for Codeup Bootcamp</span>
+                        <span class="subheading">Web Developer, Rugby Player, Coffee Drinker</span>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                             <a href="/posts">Blog Posts Index</a>
                         </h2>
                         <p class="post-subtitle">
-                            Check out all the blog posts!
+                            Check out my blog!
                         </p>
                 </div>
                 <hr>
