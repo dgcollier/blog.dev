@@ -19,13 +19,9 @@ class PostsController extends BaseController {
 	 */
 	public function index()
 	{
-		// Session::put('page', Input::get('page'));
-		// show all posts
+		// @TODO: Session::put('page', Input::get('page'));
 
-		// SELECT * FROM posts AS p 
-		// JOIN post_tag AS pt ON p.id = pt.post_id
-		// JOIN tags AS t ON pt.tag_id = t.id
-		// WHERE t.id = 10;
+		// show all posts
 
 		$query = Post::with('user', 'tags');
 
@@ -98,6 +94,32 @@ class PostsController extends BaseController {
 			}
 
 			$post->save();
+
+			$tags = explode(', ', Input::get('tags'));
+
+			foreach ($tags as $tag) {
+				$tagExists = Tag::find('id');
+
+				if ($tagExists) {
+					$tagExists->name = $tag;
+					$tagExists->save();
+
+					$relatedTag = new PostTag();
+					$relatedTag->post_id = $post->id;
+					$relatedTag->tag_id = $tagExists->id;
+					$relatedTag->save();
+				} else {
+					$newTag = new Tag();
+					$newTag->name = $tag;
+					$newTag->save();
+
+					$relatedTag = new PostTag();
+					$relatedTag->post_id = $post->id;
+					$relatedTag->tag_id = $newTag->id;
+					$relatedTag->save();
+				}
+
+			}
 
 			Log::info('Post: ' . $post->title . ' with id: ' . $post->id . ' created.', array('newPost' => Input::all()));
 
@@ -183,7 +205,43 @@ class PostsController extends BaseController {
 			$post->title = Input::get('title');
 			$post->sub_title = Input::get('sub_title');
 			$post->body = Input::get('body');
+
+			if (Input::hasFile('img_url')) {
+			    $image = Input::file('img_url');
+				$path = "uploads/";
+				$filename = $image->getClientOriginalName();
+				$destination = $image->move($path, $filename);
+				$post->img_url = '/' . $destination;
+			}
+
 			$post->save();
+
+			$tags = explode(', ', Input::get('tags'));
+			$oldTags = PostTag::find($id)->where('post_id', '=', $post->id)->delete();
+
+			foreach ($tags as $tag) {
+				$tagExists = Tag::find('id');
+
+				if ($tagExists) {
+					$tagExists->name = $tag;
+					$tagExists->save();
+
+					$relatedTag = new PostTag();
+					$relatedTag->post_id = $post->id;
+					$relatedTag->tag_id = $tagExists->id;
+					$relatedTag->save();
+				} else {
+					$newTag = new Tag();
+					$newTag->name = $tag;
+					$newTag->save();
+
+					$relatedTag = new PostTag();
+					$relatedTag->post_id = $post->id;
+					$relatedTag->tag_id = $newTag->id;
+					$relatedTag->save();
+				}
+
+			}
 
 			Log::info('Post ' . $post->id . ' updated successfully.');
 

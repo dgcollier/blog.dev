@@ -38,3 +38,8 @@ ul {
     list-style-type: none;
     padding-left: 0px;
 }
+
+#img_url {
+    margin-left: auto;
+    margin-right: auto;
+}
