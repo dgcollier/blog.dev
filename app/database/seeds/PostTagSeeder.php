@@ -2,7 +2,7 @@
 
 	use Faker\Factory as Faker;
 
-	class PostTagsSeeder extends Seeder 
+	class PostTagSeeder extends Seeder 
 	{
 		public function run()
 		{

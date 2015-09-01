@@ -14,12 +14,12 @@ class DatabaseSeeder extends Seeder {
 		DB::table('posts')->delete();
 		DB::table('users')->delete();
 		DB::table('tags')->delete();
-		DB::table('post_tags')->delete();
+		DB::table('post_tag')->delete();
 
 		$this->call('UsersTableSeeder');
 		$this->call('PostsSeeder');
 		$this->call('TagsSeeder');
-		$this->call('PostTagsSeeder');
+		$this->call('PostTagSeeder');
 	}
 
 }

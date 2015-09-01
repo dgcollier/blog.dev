@@ -8,10 +8,10 @@ class Tag extends BaseModel
 	 * Relationships
 	 *
 	 */
-	public function postTag()
-	{
-	    return $this->belongsToMany('PostTag');
-	}
+	public function posts()
+    {
+        return $this->belongsToMany('Post')->withTimestamps();
+    }
 
 	public static $rules = array(
 	    'name'      => 'required|max:16'

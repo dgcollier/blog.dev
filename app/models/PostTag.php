@@ -2,21 +2,22 @@
 
 class PostTag extends BaseModel
 {
-	protected $table = 'post_tags';
+	protected $table = 'post_tag';
 
 	/**
 	 * Relationships
 	 *
 	 */
-	public function post()
-	{
-	    return $this->belongsTo('Post');
-	}
+	// public function user()
+	// {
+	//     return $this->belongsTo('User');
+	// }
 
-	public function tag()
-	{
-	    return $this->belongsToMany('Tag');
-	}
+	// public function tags()
+ //    {
+	//     return $this->hasManyThrough('Tag', 'PostTag', 'tag_id', 'post_id');
+ //    }
+
 }
 
 ?>

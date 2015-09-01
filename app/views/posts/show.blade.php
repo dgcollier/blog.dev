@@ -74,6 +74,9 @@
                 }
             })
         });
+
+        /* * * Disqus Script - Commenting * * */
+
         /* * * CONFIGURATION VARIABLES * * */
         var disqus_shortname = 'dgcollier';
         

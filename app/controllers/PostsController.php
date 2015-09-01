@@ -21,7 +21,13 @@ class PostsController extends BaseController {
 	{
 		// Session::put('page', Input::get('page'));
 		// show all posts
-		$query = Post::with('user');
+
+		// SELECT * FROM posts AS p 
+		// JOIN post_tag AS pt ON p.id = pt.post_id
+		// JOIN tags AS t ON pt.tag_id = t.id
+		// WHERE t.id = 10;
+
+		$query = Post::with('user', 'tags');
 
 		$search = Input::get('search');
 
@@ -34,6 +40,10 @@ class PostsController extends BaseController {
 
 			$query->orWhereHas('user', function($q) use ($search) {
 				$q->where('username', 'like', "%$search%");
+			});
+
+			$query->orWhereHas('tags', function($q) use ($search) {
+				$q->where('name', 'like', "%$search%");
 			});
 		}
 

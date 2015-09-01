@@ -13,10 +13,10 @@ class Post extends BaseModel
 	    return $this->belongsTo('User');
 	}
 
-	public function postTag()
-	{
-	    return $this->belongsToMany('PostTag');
-	}
+	public function tags()
+    {
+	    return $this->belongsToMany('Tag')->withTimestamps();
+    }
 
 
 	/**

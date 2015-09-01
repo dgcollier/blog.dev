@@ -13,7 +13,7 @@ class AddForeignKeysToPostTags extends Migration {
 	public function up()
 	{
 		//
-		Schema::table('post_tags', function(Blueprint $table)
+		Schema::table('post_tag', function(Blueprint $table)
 		{
 			$table->integer('post_id')->unsigned();
 			$table->foreign('post_id')->references('id')->on('posts');
@@ -29,12 +29,12 @@ class AddForeignKeysToPostTags extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('post_tags', function(Blueprint $table)
+		Schema::table('post_tag', function(Blueprint $table)
 		{
-			$table->dropForeign('post_tags_post_id_foreign');
+			$table->dropForeign('post_tag_post_id_foreign');
 			$table->dropColumn('post_id');
 
-			$table->dropForeign('post_tags_tag_id_foreign');
+			$table->dropForeign('post_tag_tag_id_foreign');
 			$table->dropColumn('tag_id');		
 		});
 	}

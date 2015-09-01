@@ -12,7 +12,7 @@ class CreateJoinPostsWithTags extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('post_tags', function($table)
+		Schema::create('post_tag', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->timestamps();
@@ -26,7 +26,7 @@ class CreateJoinPostsWithTags extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('post_tags');
+		Schema::drop('post_tag');
 	}
 
 }

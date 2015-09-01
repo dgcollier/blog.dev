@@ -29,25 +29,46 @@
                 <div class="post-preview">
 
                     @if(Auth::check())
-                    <h3><a class="post-subtitle" href="/posts/create">Create Blog Post</a></h3>
-                    <hr>
+                        <h3>
+                            <a class="post-subtitle" href="/posts/create">
+                                Create Blog Post
+                            </a>
+                        </h3>
+                        <hr>
                     @endif
                     
                     @foreach ($posts as $post)
-                    <a href="{{{ action('PostsController@show', $post->id) }}}">
-                        <h2 class="post-title">{{{ $post->title }}}</h2>
-                        <h3 class="post-subtitle">{{{ $post->sub_title }}}</h3>
-                    </a>
-                    <p class="post-meta">
-                        @if ($post->created_at != $post->updated_at) 
-                            {{{ 'Updated by ' }}}
-                        @else
-                            {{{ 'Posted by ' }}}
-                        @endif
-              
-                        <a href="{{{ action('UsersController@show', $post->user->id) }}}">{{{ $post->user->username }}}</a> {{{ $post->updated_at->setTimezone('America/Chicago')->subMinutes(1)->diffForHumans() }}}
-                    </p>
-                    <hr>
+                        <a href="{{{ action('PostsController@show', $post->id) }}}">
+                            <h2 class="post-title">
+                                {{{ $post->title }}}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                {{{ $post->sub_title }}}
+                            </h3>
+                        </a>
+                        <p class="post-meta">
+                            @foreach ($post->tags as $tag)
+                                <a href="#">
+                                    <button class="tags btn btn-default">
+                                        #{{{ $tag->name }}}
+                                    </button>
+                                </a>
+                            @endforeach
+                        </p>
+                        <p class="post-meta">
+                            @if ($post->created_at != $post->updated_at) 
+                                {{{ 'Updated by ' }}}
+                            @else
+                                {{{ 'Posted by ' }}}
+                            @endif
+                  
+                            <a href="{{{ action('UsersController@show', $post->user->id) }}}">
+                                {{{ $post->user->username }}}
+                            </a> 
+
+                            {{{ $post->updated_at->setTimezone('America/Chicago')->subMinutes(1)->diffForHumans() }}}
+                        </p>
+                        <hr>
                     @endforeach
                     
                 </div>
