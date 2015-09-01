@@ -44,7 +44,7 @@
                     <p>
                         @foreach ($post->tags as $tag)
                             <a class="tags" href="#">
-                                <span>#{{{$tag->name }}}</span>
+                                <span>#{{{ $tag->name }}}</span>
                             </a>
                         @endforeach
                     </p>

@@ -10,6 +10,7 @@
                         <h1>D. G. COLLIER</h1>
                         <hr class="small">
                         <span class="subheading">Web Developer, Rugby Player, Coffee Drinker</span>
+                        <span class="subheading">**Site Under Construction**</span>
                     </div>
                 </div>
             </div>
