@@ -16,10 +16,13 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-           {{ Form::open(array('action' => 'PostsController@index', 'method' => 'GET')) }}
-                <input type="text" class="form-control" id="searchBar" name="search" placeholder="Search for...">
-            {{ Form::close() }}
             <ul class="nav navbar-nav navbar-right">
+                <li class="searchBar">
+                    {{ Form::open(array('action' => 'PostsController@index', 'method' => 'GET')) }}
+                        <input type="text" class="form-control" id="searchBar" name="search" placeholder="Search for...">
+                    {{ Form::close() }}
+                </li>
+
                 @if(Auth::check())
                 <li>
                     <a href="{{{ action('UsersController@show', Auth::id()) }}}">Welcome, {{{ Auth::user()->username }}}!</a>
