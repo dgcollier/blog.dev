@@ -95,6 +95,17 @@
                         <div class="skill-rate-off sixth"></div>
                     </div>
                     <hr>
+
+                    <h5>SASS</h5>
+                    <div class="skill-bar">
+                        <div class="skill-rate-on first"></div>
+                        <div class="skill-rate-off second"></div>
+                        <div class="skill-rate-off third"></div>
+                        <div class="skill-rate-off fourth"></div>
+                        <div class="skill-rate-off fifth"></div>
+                        <div class="skill-rate-off sixth"></div>
+                    </div>
+                    <hr>
                 </div>
 
                 <div class="post-preview">
