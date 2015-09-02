@@ -8,7 +8,8 @@
 		"laravel/framework": "4.2.*",
 		"intervention/image": "dev-master",
 	    "erusev/parsedown": "~1.1",
-	    "ezyang/htmlpurifier": "4.6.*"
+	    "ezyang/htmlpurifier": "4.6.*",
+		"guzzlehttp/guzzle": "~5.0"
 	},
 	"require-dev": {
 		"barryvdh/laravel-debugbar": "1.8.*",
