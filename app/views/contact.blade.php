@@ -1,5 +1,11 @@
 @extends('layouts.master')
 
+@section('head')
+    @section('title')
+        Contact D.G.Collier
+    @stop
+@stop
+
 @section('header')
     <!-- Page Header -->
     <header class="intro-header" style="background-image: url('img/blog_contact.jpg')">

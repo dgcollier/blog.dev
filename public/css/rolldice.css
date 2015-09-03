@@ -4,17 +4,25 @@ body {
 
 h1 {
 	margin-top: 8%;
-	text-decoration: underline;
+}
+
+header {
+	max-height: 350px;
 }
 
 #guess,
 #die {
-	width: 360px;
+	width: 450px;
 	margin-top: 2%;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #337ab7;
 	color: #fff;
+}
+
+.dieNum {
+	width: 50px;
+	padding: 15px;
 }
 
 #goBtn {

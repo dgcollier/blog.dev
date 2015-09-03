@@ -1,7 +1,6 @@
 <html lang="en">
 <head>
 	@include('head')
-    <link rel="stylesheet" type="text/css" href="/css/master.css">
     @yield('head')  
 </head>
 <body>

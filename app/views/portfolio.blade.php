@@ -1,5 +1,11 @@
 @extends('layouts.master')
 
+@section('head')
+    @section('title')
+        D.G.Collier's Portfolio
+    @stop
+@stop
+
 @section('header')
 	<header class="intro-header" style="background-image: url('/img/blog_portfolio.jpg')">
 	    <div class="container">
@@ -22,74 +28,78 @@
 		<div class="row">
 		    <div class="col-md-6 portfolio-item">
 		        <a href="#">
-		            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+		            <img class="img-responsive" src="/img/portfolio/portfolio_blog.png" alt="">
 		        </a>
 		        <h3>
-		            <a href="#">Project One</a>
+		            <a href="#">Personal Blog</a>
 		        </h3>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+		        <p>Backed by Laravel and MySQL, this blog was my latest project for Codeup. This was our first Laravel project.</p>
 		    </div>
 		    <div class="col-md-6 portfolio-item">
 		        <a href="#">
-		            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+		            <img class="img-responsive" src="/img/portfolio/portfolio_adlister.png" alt="">
 		        </a>
 		        <h3>
-		            <a href="#">Project Two</a>
+		            <a href="#">Adlister</a>
 		        </h3>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-		    </div>
-		</div>
-		<!-- /.row -->
-
-		<!-- Projects Row -->
-		<div class="row">
-		    <div class="col-md-6 portfolio-item">
-		        <a href="#">
-		            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-		        </a>
-		        <h3>
-		            <a href="#">Project Three</a>
-		        </h3>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-		    </div>
-		    <div class="col-md-6 portfolio-item">
-		        <a href="#">
-		            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-		        </a>
-		        <h3>
-		            <a href="#">Project Four</a>
-		        </h3>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-		    </div>
-		</div>
-		<!-- /.row -->
-
-		<!-- Projects Row -->
-		<div class="row">
-		    <div class="col-md-6 portfolio-item">
-		        <a href="#">
-		            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-		        </a>
-		        <h3>
-		            <a href="#">Project Five</a>
-		        </h3>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-		    </div>
-		    <div class="col-md-6 portfolio-item">
-		        <a href="#">
-		            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-		        </a>
-		        <h3>
-		            <a href="#">Project Six</a>
-		        </h3>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+		        <p>Our first tandem project, built entirely in PHP with no framework. Our take on the ad listing was to match those with a desire to learn a skill with someone qualified to teach them. MySQL database was utilized as well.</p>
 		    </div>
 		</div>
 		<!-- /.row -->
 
 		<hr>
 
-		<!-- Pagination -->
+		<!-- Projects Row -->
+		<div class="row">
+		    <div class="col-md-6 portfolio-item">
+		        <a href="#">
+		            <img class="img-responsive" src="/img/portfolio/portfolio_parks.png" alt="">
+		        </a>
+		        <h3>
+		            <a href="#">National Parks</a>
+		        </h3>
+		        <p>First MySQL project. Our assignment was to create a GUI to add records to a database and display the results in the web.</p>
+		    </div>
+		    <div class="col-md-6 portfolio-item">
+		        <a href="#">
+		            <img class="img-responsive" src="/img/portfolio/portfolio_whackamole.png" alt="">
+		        </a>
+		        <h3>
+		            <a href="#">Whack-A-Big-12</a>
+		        </h3>
+		        <p>My take on our JavaScript assignment to make a whack-a-mole-style game. Currently the only option is to play as a Texas fan, perhaps I will add more options in the future. </p>
+		    </div>
+		</div>
+		<!-- /.row -->
+
+		<hr>
+
+		<!-- Projects Row -->
+		<div class="row">
+		    <div class="col-md-6 portfolio-item">
+		        <a href="#">
+		            <img class="img-responsive" src="/img/portfolio/portfolio_simon.png" alt="">
+		        </a>
+		        <h3>
+		            <a href="#">Simple Simon</a>
+		        </h3>
+		        <p>Another JavaScript game that was much lighter and faster to build. A pre-cursor to our whack-a-mole assignment.</p>
+		    </div>
+		    <div class="col-md-6 portfolio-item">
+		        <a href="#">
+		            <img class="img-responsive" src="/img/portfolio/portfolio_rolldice.png" alt="">
+		        </a>
+		        <h3>
+		            <a href="#">Rolldice</a>
+		        </h3>
+		        <p>A small PHP game. The odds are not in your favor.</p>
+		    </div>
+		</div>
+		<!-- /.row -->
+
+		<hr>
+
+		{{-- <!-- Pagination -->
 		<div class="row text-center">
 		    <div class="col-lg-12">
 		        <ul class="pagination">
@@ -116,7 +126,7 @@
 		            </li>
 		        </ul>
 		    </div>
-		</div>
+		</div> --}}
 		<!-- /.row -->
 	</div>
 @stop

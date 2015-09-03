@@ -2,6 +2,9 @@
 
 @section('head')
 	<link rel="stylesheet" type="text/css" href="css/resume.css">
+    @section('title')
+        D.G.Collier's Resume
+    @stop
 @stop
 
 @section('header')

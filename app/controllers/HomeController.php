@@ -106,7 +106,7 @@ class HomeController extends BaseController {
 	    }
 	}
 
-	public function showRolldice($userGuess)
+	public function showRolldice($userGuess = 1)
 	{
 		$compGuess = mt_rand(1,6);
 

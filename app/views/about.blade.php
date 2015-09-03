@@ -2,6 +2,9 @@
 
 @section('head')
     <link rel="stylesheet" type="text/css" href="/css/about.css">
+    @section('title')
+        About D.G. Collier
+    @stop
 @stop
 
 @section('header')

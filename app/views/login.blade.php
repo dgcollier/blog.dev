@@ -2,7 +2,11 @@
 
 @section('head')
     <link rel="stylesheet" type="text/css" href="/css/create.css">
+    @section('title')
+        D.G.Collier - Log In
+    @stop
 @stop
+
 
 @section('header')
     <!-- Page Header -->
