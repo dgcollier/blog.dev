@@ -140,7 +140,6 @@ class PostsController extends BaseController {
 	{
 		// display post by id
 		$post = Post::find($id);
-		$Parsedown = new Parsedown();
 
 		if(!$post) {
 			App::abort(404);	
@@ -275,7 +274,6 @@ class PostsController extends BaseController {
 		// delete specific blog post
 		$post->delete();
 
-
 		if(!$post) {
 			Session::flash('errorMessage', 'The post you are looking for does not exist.');
 			App::abort(404);
@@ -285,6 +283,22 @@ class PostsController extends BaseController {
 
 		Session::flash('successMessage', 'Your post was successfully removed.');
 
-		return Redirect::action('PostsController@index');
-	}
+        if (Request::wantsJson()) {
+        	$posts = Post::with('user')->get();
+            return Response::json($posts);
+        } else {
+            return Redirect::action('PostsController@index');
+        }
+    }
+
+    public function getManage()
+    {
+    	return View::make('posts.manage');
+    }
+
+    public function getList()
+    {
+    	$posts = Post::with('user')->get();
+    	return Response::json($posts);
+    }
 }

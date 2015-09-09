@@ -42,6 +42,12 @@ Route::get('/sayhello/{name?}', 'HomeController@sayHello');
 // ROLLDICE
 Route::get('/rolldice/{userGuess?}', 'HomeController@showRolldice');
 
+// MANAGE
+Route::get('/posts/manage', 'PostsController@getManage');
+
+//LIST
+Route::get('/posts/list', 'PostsController@getList');
+
 // POST
 // LOGIN
 Route::post('login', 'HomeController@doLogin');

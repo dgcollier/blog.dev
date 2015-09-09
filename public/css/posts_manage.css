@@ -1,0 +1,19 @@
+th {
+	font-size: 22px;
+}
+
+.data {
+	font-size: 18px;
+	vertical-align: middle;
+}
+
+.table {
+	margin: auto;
+	width: 85%;
+	max-width: 85%;
+}
+
+.editBtn,
+.deleteBtn {
+	border-radius: 50%;
+}

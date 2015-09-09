@@ -1,5 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="csrf-token" content="{{{ csrf_token() }}}">
 
 <title>
 	@yield('title')
@@ -10,7 +11,7 @@
 
 <!-- Custom CSS -->
 <link href="/css/clean-blog.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/css/master.css">
+<link href="/css/master.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
