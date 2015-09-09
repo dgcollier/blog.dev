@@ -29,10 +29,16 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                @if(Auth::check() && (Auth::id() == 1))
+                <h3><a class="post-subtitle" href="/posts/manage">Manage Blog</a></h3>
+                <hr>
+                @endif
+
                 @if(Auth::check())
                 <h3><a class="post-subtitle" href="/posts/create">Create Blog Post</a></h3>
                 <hr>
                 @endif
+
                 <div class="post-preview">
                     <a href="post">
                         <h2 class="post-title">

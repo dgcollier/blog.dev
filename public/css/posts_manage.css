@@ -16,4 +16,5 @@ th {
 .editBtn,
 .deleteBtn {
 	border-radius: 50%;
+	border-width: 1.5px;
 }

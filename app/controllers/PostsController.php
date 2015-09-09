@@ -251,7 +251,13 @@ class PostsController extends BaseController {
 
 			Session::flash('successMessage', 'Your post was updated successfully!');
 
-			return View::make('posts.show')->with('post', $post);
+			if (Request::wantsJson()) {
+	        	$posts = Post::with('user')->get();
+	            return Response::json($posts);
+	        } else {
+				return View::make('posts.show')->with('post', $post);
+	        }
+
 		}
 	}
 
@@ -293,7 +299,12 @@ class PostsController extends BaseController {
 
     public function getManage()
     {
-    	return View::make('posts.manage');
+    	if (Auth::check() && (Auth::id() == 1)) {
+	    	return View::make('posts.manage');
+    	} else {
+    		Session::flash('errorMessage', 'You do not have permissions to access that page.');
+    		return Redirect::action('HomeController@showHome');
+    	}
     }
 
     public function getList()

@@ -31,14 +31,39 @@
         });
 
         $scope.deletePost = function(index) {
-            console.log(index);
             $scope.posts.splice(index, 1);
             $http.delete('/posts/' + index).then(function(response) {
                 $log.info("Post deleted.");
                 $log.info(response);
                 $scope.posts = response.data;
+            }, function(response) {
+                $log.error("Error deleting post.");
+
+                $log.debug(response);
             });
         };
+
+        $scope.open = function(index) {
+
+            $scope.post = $scope.posts[index];
+            $('#modal').modal('show');
+        };
+
+        $scope.editPost = function() {
+
+            $http.put('/posts/' + $scope.post.id, {
+                'title': $scope.post.title,
+                'sub_title': $scope.post.sub_title,
+                'body': $scope.post.body,
+            }).then(function(response) {
+                $log.info("Post successfully edited.");
+                $log.info(response);
+                $('#modal').modal('hide');
+            }, function(response) {
+                $log.error("Error editing post.");
+                $log.debug(response);
+            });
+        }
 
         $scope.formatDate = function(date){
             var dateOut = new Date(date);
