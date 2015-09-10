@@ -221,7 +221,6 @@ class PostsController extends BaseController {
 			$post->save();
 
 			$tags = explode(', ', Input::get('tags'));
-			$oldTags = PostTag::find($id)->where('post_id', '=', $post->id)->delete();
 
 			foreach ($tags as $tag) {
 				$tagExists = Tag::find('id');

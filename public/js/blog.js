@@ -54,18 +54,20 @@
             $http.put('/posts/' + $scope.post.id, {
                 'title': $scope.post.title,
                 'sub_title': $scope.post.sub_title,
-                'body': $scope.post.body,
+                'body': $scope.post.body
+
             }).then(function(response) {
                 $log.info("Post successfully edited.");
                 $log.info(response);
                 $('#modal').modal('hide');
+
             }, function(response) {
                 $log.error("Error editing post.");
                 $log.debug(response);
             });
         }
 
-        $scope.formatDate = function(date){
+        $scope.formatDate = function(date) {
             var dateOut = new Date(date);
             return dateOut;
         }; 
