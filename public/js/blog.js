@@ -65,7 +65,7 @@
                 $log.error("Error editing post.");
                 $log.debug(response);
             });
-        }
+        };
 
         $scope.formatDate = function(date) {
             var dateOut = new Date(date);

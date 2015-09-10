@@ -26,10 +26,10 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	}
 
 	public static $rules = array(
-	    'first_name'  		=> 'required|max:32',
-	    'last_name'	  		=> 'required|max:32',
-	    'username'    		=> 'required|max:32',
-	    'password'	  		=> 'required|max:32'
+	    'first_name'  		=> 'required|max:32|min:2',
+	    'last_name'	  		=> 'required|max:32|min:2',
+	    'username'    		=> 'required|max:32|min:6',
+	    'password'	  		=> 'required|max:32|min:8'
 	);
 
 	public static $editRules = array(
