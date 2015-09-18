@@ -41,7 +41,7 @@
 					</td>
 
 					<td class="data">
-						<a href="/posts/@{{ p.id }}">
+						<a href="@{{ action('PostsController@show', p.id) }}">
 							@{{ p.title }}
 						</a>
 					</td>

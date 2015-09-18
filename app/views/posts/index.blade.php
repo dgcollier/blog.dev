@@ -30,7 +30,7 @@
 
                     @if(Auth::check())
                         <h3>
-                            <a class="post-subtitle" href="/posts/create">
+                            <a class="post-subtitle" href="{{{ action('PostsController@create') }}}">
                                 Create Blog Post
                             </a>
                         </h3>

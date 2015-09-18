@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
-                    <a href="{{{ action('HomeController@showResume') }}}">
+                    <a href="{{{ action('MeController@showResume') }}}">
                         <h2 class="post-title">Skillset</h2>
                         <h3 class="post-subtitle">Check out my resume.</h3>
                     </a>
@@ -123,7 +123,7 @@
                 </div>
 
                 <div class="post-preview">
-                    <a href="{{{ action('HomeController@showPortfolio') }}}">
+                    <a href="{{{ action('MeController@showPortfolio') }}}">
                         <h2 class="post-title">
                             Portfolio
                         </h2>

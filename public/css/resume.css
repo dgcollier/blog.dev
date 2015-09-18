@@ -1,9 +1,10 @@
-.entry {
+.entry,
+.heading {
 	margin-left: 15%;
 	margin-right: 15%;
 }
 
-.employer {
+.title {
 	float: left;
 }
 
@@ -18,5 +19,8 @@
 }
 
 .duties {
+	clear: both;
+}
+.employer {
 	clear: left;
 }

@@ -248,12 +248,11 @@ class PostsController extends BaseController {
 
 			Log::info('Post ' . $post->id . ' updated successfully.');
 
-			Session::flash('successMessage', 'Your post was updated successfully!');
-
 			if (Request::wantsJson()) {
 	        	$posts = Post::with('user')->get();
 	            return Response::json($posts);
 	        } else {
+				Session::flash('successMessage', 'Your post was updated successfully!');
 				return View::make('posts.show')->with('post', $post);
 	        }
 
@@ -286,12 +285,12 @@ class PostsController extends BaseController {
 
 		Log::warning('Post was deleted.');
 
-		Session::flash('successMessage', 'Your post was successfully removed.');
 
         if (Request::wantsJson()) {
         	$posts = Post::with('user')->get();
             return Response::json($posts);
         } else {
+			Session::flash('successMessage', 'Your post was successfully removed.');
             return Redirect::action('PostsController@index');
         }
     }

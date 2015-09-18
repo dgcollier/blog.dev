@@ -25,7 +25,9 @@
 
                 @if(Auth::check())
                 <li>
-                    <a href="{{{ action('UsersController@show', Auth::id()) }}}">Welcome, {{{ Auth::user()->username }}}!</a>
+                    <a href="{{{ action('UsersController@show', Auth::id()) }}}">
+                        {{{ Auth::user()->username }}}
+                    </a>
                 </li>
                 <li>
                     <a href="{{{ action('HomeController@doLogout') }}}">Log Out</a>
@@ -43,15 +45,15 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Misc.<span class="caret"></span></a>
                     <ul class="dropdown-menu nav navbar-nav navbar-right">
                         <li>
-                            <a href="/about">About</a>
+                            <a href="{{{ action('MeController@showAbout') }}}">About</a>
                         </li>
 
                         <li>
-                            <a href="/contact">Contact</a>
+                            <a href="{{{ action('MeController@showContact') }}}">Contact</a>
                         </li>
                     
                         <li>
-                            <a href="/rolldice/1">Rolldice</a>
+                            <a href="{{{ action('GamesController@index') }}}">Games</a>
                         </li>
                     </ul>
                 </li>

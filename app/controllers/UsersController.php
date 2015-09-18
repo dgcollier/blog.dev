@@ -187,13 +187,16 @@ class UsersController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		$id = Auth::id();
+		$user = User::find($id);
 
 		// delete user's posts
-		Post::where('user_id', Auth::id())->delete();
+		$userPosts = Post::where('user_id', $id)->get();
+		$userPosts->delete();
 
 		// delete user account
 		$user = User::find($id)->delete();
+
+		Log::info('User was deleted.');
 
 		if (Request::wantsJson()) {
         	$users = User::all();
@@ -205,14 +208,10 @@ class UsersController extends BaseController {
 				Session::flash('errorMessage', 'The user you are looking for does not exist.');
 				App::abort(404);
 			}
-
-			Log::info('User was deleted.');
-
+			
 			Session::flash('successMessage', 'Your account and posts were successfully deleted.');
-
-
-			return Redirect::action('HomeController@showHome');
-		};
+			return Redirect::action('HomeController@showHome');	
+		}
 	}
 
 	public function getManage()

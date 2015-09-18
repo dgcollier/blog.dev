@@ -27,11 +27,11 @@
 		<!-- Projects Row -->
 		<div class="row">
 		    <div class="col-md-6 portfolio-item">
-		        <a href="/posts">
+		        <a href="{{{ action('PostsController@index') }}}">
 		            <img class="img-responsive" src="/img/portfolio/portfolio_blog.png" alt="">
 		        </a>
 		        <h3>
-		            <a href="/posts">Personal Blog</a>
+		            <a href="{{{ action('PostsController@index') }}}">Personal Blog</a>
 		        </h3>
 		        <p>Backed by Laravel and MySQL, this blog was my latest project for Codeup. This was our first Laravel project.</p>
 		    </div>
@@ -60,11 +60,11 @@
 		        <p>First MySQL project. Our assignment was to create a GUI to add records to a database and display the results in the web.</p>
 		    </div>
 		    <div class="col-md-6 portfolio-item">
-		        <a href="{{{ action('HomeController@showWhackAMole') }}}">
+		        <a href="{{{ action('GamesController@showWhackAMole') }}}">
 		            <img class="img-responsive" src="/img/portfolio/portfolio_whackamole.png" alt="">
 		        </a>
 		        <h3>
-		            <a href="{{{ action('HomeController@showWhackAMole') }}}">Whack-A-Big-12</a>
+		            <a href="{{{ action('GamesController@showWhackAMole') }}}">Whack-A-Big-12</a>
 		        </h3>
 		        <p>My take on our JavaScript assignment to make a whack-a-mole-style game. Currently the only option is to play as a Texas fan, perhaps I will add more options in the future. </p>
 		    </div>
@@ -75,20 +75,20 @@
 		<!-- Projects Row -->
 		<div class="row">
 		    <div class="col-md-6 portfolio-item">
-		        <a href="{{{ action('HomeController@showSimon') }}}">
+		        <a href="{{{ action('GamesController@showSimon') }}}">
 		            <img class="img-responsive" src="/img/portfolio/portfolio_simon.png" alt="">
 		        </a>
 		        <h3>
-		            <a href="{{{ action('HomeController@showSimon') }}}">Simple Simon</a>
+		            <a href="{{{ action('GamesController@showSimon') }}}">Simple Simon</a>
 		        </h3>
 		        <p>Another JavaScript game that was much lighter and faster to build. A pre-cursor to our whack-a-mole assignment.</p>
 		    </div>
 		    <div class="col-md-6 portfolio-item">
-		        <a href="{{{ action('HomeController@showRolldice') }}}">
+		        <a href="{{{ action('GamesController@showRolldice') }}}">
 		            <img class="img-responsive" src="/img/portfolio/portfolio_rolldice.png" alt="">
 		        </a>
 		        <h3>
-		            <a href="{{{ action('HomeController@showRolldice') }}}">Rolldice</a>
+		            <a href="{{{ action('GamesController@showRolldice') }}}">Rolldice</a>
 		        </h3>
 		        <p>A small PHP game. The odds are not in your favor.</p>
 		    </div>

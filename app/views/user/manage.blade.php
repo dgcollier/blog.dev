@@ -22,7 +22,7 @@
 @stop
 
 @section('content')
-	<div ng-controller="ManageUsersController" class="ng-cloak">
+	<div ng-controller="ManageUsersController">
 		<table class="table table-responsive table-striped">
 			<thead>
 				<tr>
@@ -35,7 +35,7 @@
 					<th>Delete</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="ng-cloak">
 				<tr ng-repeat="u in users">
 					<td class="data">
 						@{{ $index + 1 }}
@@ -82,7 +82,7 @@
 		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		        			<span aria-hidden="true">&times;</span>
 	        			</button>
-		        		<h4 class="modal-title" id="myModalLabel">
+		        		<h4 class="modal-title ng-cloak" id="myModalLabel">
 		        			@{{ user.title }}
 	        			</h4>
 		      		</div> <!-- modal-header -->
