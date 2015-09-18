@@ -36,7 +36,7 @@
                             <input type="file" class="input" name="img_url" id="img_url">
                         </div>
                         <div>
-                            <textarea id="body" class="input form-control" name="body" placeholder="Post Body" rows="15"></textarea>
+                            <textarea id="body" class="input form-control" name="body" placeholder="Post Body" rows="15">@if(Input::old('body')) {{{Input::old('body') }}} @endif</textarea>
                         </div>
                         <div>
                             <input type="text" id="tags" class="input" name="tags" placeholder="#Tags">
