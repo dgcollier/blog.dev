@@ -1,14 +1,14 @@
 <html lang="en">
 <head>
-	@include('head')
+	@include('partials/head')
     @yield('head')  
 </head>
 <body ng-app="blog">
 	<header>
-		@include('nav')
+		@include('partials/nav')
 		@yield('header')
-        @include('messages')
-        @include('errors')
+        @include('partials/messages')
+        @include('partials/errors')
     </header>
 
     <main>
@@ -16,17 +16,10 @@
     </main>
 
     <footer>
-	    @include('footer')
+	    @include('partials/footer')
     </footer>
 
-    <!-- jQuery -->
-    <script src="/js/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->       
-    <script src="/js/bootstrap.min.js"></script>       
-
-    <!-- Clean Blog JavaScript -->       
-    <script src="/js/header.js"></script>       
+    @include('partials/script')      
 
     @yield('script')
 </body>
