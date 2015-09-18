@@ -60,11 +60,11 @@
 		        <p>First MySQL project. Our assignment was to create a GUI to add records to a database and display the results in the web.</p>
 		    </div>
 		    <div class="col-md-6 portfolio-item">
-		        <a href="/whackamole">
+		        <a href="{{{ action('HomeController@showWhackAMole') }}}">
 		            <img class="img-responsive" src="/img/portfolio/portfolio_whackamole.png" alt="">
 		        </a>
 		        <h3>
-		            <a href="/whackamole">Whack-A-Big-12</a>
+		            <a href="{{{ action('HomeController@showWhackAMole') }}}">Whack-A-Big-12</a>
 		        </h3>
 		        <p>My take on our JavaScript assignment to make a whack-a-mole-style game. Currently the only option is to play as a Texas fan, perhaps I will add more options in the future. </p>
 		    </div>
@@ -84,11 +84,11 @@
 		        <p>Another JavaScript game that was much lighter and faster to build. A pre-cursor to our whack-a-mole assignment.</p>
 		    </div>
 		    <div class="col-md-6 portfolio-item">
-		        <a href="#">
+		        <a href="{{{ action('HomeController@showRolldice') }}}">
 		            <img class="img-responsive" src="/img/portfolio/portfolio_rolldice.png" alt="">
 		        </a>
 		        <h3>
-		            <a href="#">Rolldice</a>
+		            <a href="{{{ action('HomeController@showRolldice') }}}">Rolldice</a>
 		        </h3>
 		        <p>A small PHP game. The odds are not in your favor.</p>
 		    </div>
