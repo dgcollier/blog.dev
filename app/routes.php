@@ -57,6 +57,9 @@ Route::get('/user/list', 'UsersController@getList');
 // WHACK-A-MOLE
 Route::get('whackamole', 'HomeController@showWhackAMole');
 
+// SIMPLE SIMON
+Route::get('simon', 'HomeController@showSimon');
+
 // POST
 // LOGIN
 Route::post('login', 'HomeController@doLogin');

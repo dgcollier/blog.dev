@@ -75,11 +75,11 @@
 		<!-- Projects Row -->
 		<div class="row">
 		    <div class="col-md-6 portfolio-item">
-		        <a href="#">
+		        <a href="{{{ action('HomeController@showSimon') }}}">
 		            <img class="img-responsive" src="/img/portfolio/portfolio_simon.png" alt="">
 		        </a>
 		        <h3>
-		            <a href="#">Simple Simon</a>
+		            <a href="{{{ action('HomeController@showSimon') }}}">Simple Simon</a>
 		        </h3>
 		        <p>Another JavaScript game that was much lighter and faster to build. A pre-cursor to our whack-a-mole assignment.</p>
 		    </div>

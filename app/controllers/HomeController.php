@@ -124,4 +124,9 @@ class HomeController extends BaseController {
 	{
 		return View::make('whackamole');
 	}
+
+	public function showSimon()
+	{
+		return View::make('simon');
+	}
 }
