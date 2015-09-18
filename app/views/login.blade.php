@@ -34,8 +34,8 @@
     	        {{ Form::open(array('action' => 'HomeController@doLogin', 'class' => 'form-horizontal', 'id' => 'login')) }}
     	            <div id="loginForm" class="form-group col-xs-12">
     	                <div class="row">
-                            <input type="text" id="username" class="input" name="username" placeholder="Username" value="{{{ Input::old('title') }}}" autofocus>
-                            <input type="password" id="password" class="input" name="password" placeholder="Password" value="{{{ Input::old('sub_title') }}}">
+                            <input type="text" id="username" class="input" name="username" placeholder="Username" autofocus>
+                            <input type="password" id="password" class="input" name="password" placeholder="Password">
                         </div>
 
     	                <div class="row">

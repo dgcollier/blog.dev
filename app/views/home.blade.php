@@ -32,6 +32,8 @@
                 @if(Auth::check() && (Auth::id() == 1))
                 <h3><a class="post-subtitle" href="/posts/manage">Manage Blog</a></h3>
                 <hr>
+                <h3><a class="post-subtitle" href="/user/manage">Manage Users</a></h3>
+                <hr>
                 @endif
 
                 @if(Auth::check())

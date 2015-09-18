@@ -42,11 +42,20 @@ Route::get('/sayhello/{name?}', 'HomeController@sayHello');
 // ROLLDICE
 Route::get('/rolldice/{userGuess?}', 'HomeController@showRolldice');
 
-// MANAGE
+// MANAGE POSTS
 Route::get('/posts/manage', 'PostsController@getManage');
 
-//LIST
+// LIST POSTS
 Route::get('/posts/list', 'PostsController@getList');
+
+// MANAGE USERS
+Route::get('/user/manage', 'UsersController@getManage');
+
+// LIST USERS
+Route::get('/user/list', 'UsersController@getList');
+
+// WHACK-A-MOLE
+Route::get('whackamole', 'HomeController@showWhackAMole');
 
 // POST
 // LOGIN

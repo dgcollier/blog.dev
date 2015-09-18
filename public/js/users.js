@@ -31,7 +31,6 @@
         });
 
         $scope.deletePost = function(index) {
-
             $scope.posts.splice(index, 1);
             $http.delete('/posts/' + index).then(function(response) {
                 $log.info("Post deleted.");
@@ -64,64 +63,6 @@
 
             }, function(response) {
                 $log.error("Error editing post.");
-                $log.debug(response);
-            });
-        };
-
-        $scope.formatDate = function(date) {
-            var dateOut = new Date(date);
-            return dateOut;
-        }; 
-    }]);
-
-    app.controller("ManageUsersController", ["$http", "$log", "$scope", function($http, $log, $scope) {
-        $scope.users = [];
-
-        $http.get('/user/list').then(function(response) {
-            $log.info("Request complete.");
-            $log.info(response);
-            $scope.users = response.data;
-
-        }, function(response) {
-            $log.error("Request failed.");
-
-            $log.debug(response);
-        });
-
-        $scope.deleteUser = function(index) {
-
-            $scope.users.splice(index, 1);
-            $http.delete('/user/' + index).then(function(response) {
-                $log.info("User deleted.");
-                $log.info(response);
-                $scope.users = response.data;
-            }, function(response) {
-                $log.error("Error deleting user.");
-
-                $log.debug(response);
-            });
-        };
-
-        $scope.open = function(index) {
-
-            $scope.user = $scope.users[index];
-            $('#modal').modal('show');
-        };
-
-        $scope.editUser = function() {
-
-            $http.put('/user/' + $scope.user.id, {
-                'first_name': $scope.user.first_name,
-                'last_name': $scope.user.last_name,
-                'username': $scope.user.username
-
-            }).then(function(response) {
-                $log.info("User successfully edited.");
-                $log.info(response);
-                $('#modal').modal('hide');
-
-            }, function(response) {
-                $log.error("Error editing user.");
                 $log.debug(response);
             });
         };

@@ -111,10 +111,11 @@ class UsersController extends BaseController {
 		// edit a specific user
 		$user = User::find($id);
 
-		if(Auth::id() != $user->id)
+		if(Auth::id() != $user->id) {
 			Session::flash('errorMessage', 'You are not authorized to edit this profile.');
 			Log::warning('User ' . Auth::id() . ' tried to edit account ' . $user .  ' without authorization.');
 			Redirect::action('UsersController@show');
+		}
 
 		if(!$user) {
 			Session::flash('errorMessage', 'The user you are looking for does not exist.');
@@ -140,7 +141,10 @@ class UsersController extends BaseController {
 		$password = Input::get('password');
 
 	    // attempt validation
-	    if ($validator->fails()) {
+	    if (Request::wantsJson()) {
+        	$users = User::all();
+            return Response::json($users);
+	    } else if ($validator->fails()) {
 	        Session::flash('errorMessage', 'Hmmm...something went wrong. Please check the message(s) below to fix:');
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else if(!$user) {
@@ -190,18 +194,40 @@ class UsersController extends BaseController {
 
 		// delete user account
 		$user = User::find($id)->delete();
-		Auth::logout();
 
-		if(!$user) {
-			Session::flash('errorMessage', 'The user you are looking for does not exist.');
-			App::abort(404);
-		}
+		if (Request::wantsJson()) {
+        	$users = User::all();
+            return Response::json($users);
+        } else {
+			Auth::logout();
 
-		Log::info('User was deleted.');
+			if(!$user) {
+				Session::flash('errorMessage', 'The user you are looking for does not exist.');
+				App::abort(404);
+			}
 
-		Session::flash('successMessage', 'Your account and posts were successfully deleted.');
+			Log::info('User was deleted.');
+
+			Session::flash('successMessage', 'Your account and posts were successfully deleted.');
 
 
-		return Redirect::action('HomeController@showHome');
+			return Redirect::action('HomeController@showHome');
+		};
 	}
+
+	public function getManage()
+    {
+    	if (Auth::check() && (Auth::id() == 1)) {
+	    	return View::make('user.manage');
+    	} else {
+    		Session::flash('errorMessage', 'You do not have permission to access that page.');
+    		return Redirect::action('HomeController@showHome');
+    	}
+    }
+
+    public function getList()
+    {
+    	$users = User::all();
+    	return Response::json($users);
+    }
 }

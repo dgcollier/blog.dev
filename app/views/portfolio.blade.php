@@ -27,11 +27,11 @@
 		<!-- Projects Row -->
 		<div class="row">
 		    <div class="col-md-6 portfolio-item">
-		        <a href="#">
+		        <a href="/posts">
 		            <img class="img-responsive" src="/img/portfolio/portfolio_blog.png" alt="">
 		        </a>
 		        <h3>
-		            <a href="#">Personal Blog</a>
+		            <a href="/posts">Personal Blog</a>
 		        </h3>
 		        <p>Backed by Laravel and MySQL, this blog was my latest project for Codeup. This was our first Laravel project.</p>
 		    </div>
@@ -44,8 +44,7 @@
 		        </h3>
 		        <p>Our first tandem project, built entirely in PHP with no framework. Our take on the ad listing was to match those with a desire to learn a skill with someone qualified to teach them. MySQL database was utilized as well.</p>
 		    </div>
-		</div>
-		<!-- /.row -->
+		</div><!-- /.row -->
 
 		<hr>
 
@@ -61,16 +60,15 @@
 		        <p>First MySQL project. Our assignment was to create a GUI to add records to a database and display the results in the web.</p>
 		    </div>
 		    <div class="col-md-6 portfolio-item">
-		        <a href="#">
+		        <a href="/whackamole">
 		            <img class="img-responsive" src="/img/portfolio/portfolio_whackamole.png" alt="">
 		        </a>
 		        <h3>
-		            <a href="#">Whack-A-Big-12</a>
+		            <a href="/whackamole">Whack-A-Big-12</a>
 		        </h3>
 		        <p>My take on our JavaScript assignment to make a whack-a-mole-style game. Currently the only option is to play as a Texas fan, perhaps I will add more options in the future. </p>
 		    </div>
-		</div>
-		<!-- /.row -->
+		</div><!-- /.row -->
 
 		<hr>
 
@@ -94,8 +92,7 @@
 		        </h3>
 		        <p>A small PHP game. The odds are not in your favor.</p>
 		    </div>
-		</div>
-		<!-- /.row -->
+		</div><!-- /.row -->
 
 		<hr>
 
@@ -126,7 +123,6 @@
 		            </li>
 		        </ul>
 		    </div>
-		</div> --}}
-		<!-- /.row -->
+		</div> --}}<!-- /.row -->
 	</div>
 @stop

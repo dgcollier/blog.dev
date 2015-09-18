@@ -120,8 +120,8 @@ class HomeController extends BaseController {
 		return View::make('rolldice')->with($data);
 	}
 
-	// public function showWelcome()
-	// {
-	// 	return View::make('hello');
-	// }
+	public function showWhackAMole()
+	{
+		return View::make('whackamole');
+	}
 }

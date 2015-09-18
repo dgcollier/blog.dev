@@ -301,7 +301,7 @@ class PostsController extends BaseController {
     	if (Auth::check() && (Auth::id() == 1)) {
 	    	return View::make('posts.manage');
     	} else {
-    		Session::flash('errorMessage', 'You do not have permission
+    		Session::flash('errorMessage', 'You do not have permission to access that page.');
     		return Redirect::action('HomeController@showHome');
     	}
     }

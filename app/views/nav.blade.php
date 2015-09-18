@@ -40,24 +40,22 @@
                 @endif
 
                 <li class="dropdown" id="wtf">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Misc.<span class="caret"></span></a>
-                  <ul class="dropdown-menu nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/about">About</a>
-                    </li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Misc.<span class="caret"></span></a>
+                    <ul class="dropdown-menu nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/about">About</a>
+                        </li>
 
-                    <li>
-                        <a href="/contact">Contact</a>
-                    </li>
-                
-                    <li>
-                        <a href="/rolldice/1">Rolldice</a>
-                    </li>
-                  </ul>
+                        <li>
+                            <a href="/contact">Contact</a>
+                        </li>
+                    
+                        <li>
+                            <a href="/rolldice/1">Rolldice</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
 </nav>
