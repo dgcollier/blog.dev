@@ -44,20 +44,20 @@
                 <div class="post-preview">
                     <a href="post">
                         <h2 class="post-title">
-                            <a href="/posts">Blog Posts Index</a>
+                            <a href="/portfolio">Portfolio</a>
                         </h2>
                         <p class="post-subtitle">
-                            Check out my blog!
+                            Check out my work!
                         </p>
                 </div>
                 <hr>
                 <div class="post-preview">
                     <a href="post">
                         <h2 class="post-title">
-                            <a href="/portfolio">Portfolio</a>
+                            <a href="/posts">Blog Posts Index</a>
                         </h2>
                         <p class="post-subtitle">
-                            Check out my work!
+                            Check out my blog!
                         </p>
                 </div>
                 <hr>
