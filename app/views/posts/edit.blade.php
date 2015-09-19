@@ -54,7 +54,10 @@
     	                <div class="row">
                             <div class="form-group col-xs-12">
                                 <a href="{{{ action('PostsController@show', $post->id) }}}">
-                                    <button id="backBtn" class="btn btn-default"><< Back</button>
+                                    <button id="backBtn" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                        Back
+                                    </button>
                                 </a>
                                 <button class="btn btn-default" id="post">Submit</button>
                             </div>

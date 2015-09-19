@@ -24,7 +24,27 @@
 
 @section('content')
 	<div class="container">
-		<!-- Projects Row -->
+		<!-- Concert Manager -->
+        <div class="row">
+            <div class="col-md-7">
+                <a href="https://github.com/SouthernUncle/events.dev" target="_blank">
+                    <img class="img-responsive" src="/img/portfolio/portfolio_events.png" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <h3>Concert Lister</h3>
+                <h4>Subheading</h4>
+                <p>Using PHP, Laravel, and MySQL, our team of two spent one week building this full-stack event management application. Currently, this app is not hosted live, but you can view our code.</p>
+                <a class="btn btn-default" href="https://github.com/SouthernUncle/events.dev" target="_blank">
+                	<span class="glyphicon glyphicon-link"></span>
+                	Github 
+            	</a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+		<!-- Personal Blog & Adlister -->
 		<div class="row">
 		    <div class="col-md-6 portfolio-item">
 		        <a href="{{{ action('PostsController@index') }}}">
@@ -33,31 +53,35 @@
 		        <h3>
 		            <a href="{{{ action('PostsController@index') }}}">Personal Blog</a>
 		        </h3>
-		        <p>Backed by Laravel and MySQL, this blog was my latest project for Codeup. This was our first Laravel project.</p>
+		        <p>Backed by a MySQL database, this blog was our first project using the Laravel MVC framework.</p>
 		    </div>
 		    <div class="col-md-6 portfolio-item">
-		        <a href="#">
+		        {{-- <a href="#"> --}}
 		            <img class="img-responsive" src="/img/portfolio/portfolio_adlister.png" alt="">
-		        </a>
+		        {{-- </a> --}}
 		        <h3>
-		            <a href="#">Adlister</a>
+		            {{-- <a href="#"> --}}
+		            Adlister
+		            {{-- </a> --}}
 		        </h3>
-		        <p>Our first tandem project, built entirely in PHP with no framework. Our take on the ad listing was to match those with a desire to learn a skill with someone qualified to teach them. MySQL database was utilized as well.</p>
+		        <p>Our first tandem project, built in PHP with no framework. Our take on the ad listing was to match those with a desire to learn a skill with someone qualified to teach them. MySQL database was utilized as well. Code available on <a href="https://github.com/the-tool-shed/the_tool_shed" target="_blank">Github</a>.</p>
 		    </div>
 		</div><!-- /.row -->
 
 		<hr>
 
-		<!-- Projects Row -->
+		<!-- Parks DB & WhackAMole -->
 		<div class="row">
 		    <div class="col-md-6 portfolio-item">
-		        <a href="#">
+		        {{-- <a href="#"> --}}
 		            <img class="img-responsive" src="/img/portfolio/portfolio_parks.png" alt="">
-		        </a>
+		        {{-- </a> --}}
 		        <h3>
-		            <a href="#">National Parks</a>
+		            {{-- <a href="#"> --}}
+		            National Parks
+		            {{-- </a> --}}
 		        </h3>
-		        <p>First MySQL project. Our assignment was to create a GUI to add records to a database and display the results in the web.</p>
+		        <p>First MySQL project. Our assignment was to create a GUI to add records to a database and display the results in the web. Code available <a href="https://github.com/dgcollier/Parks.dev">here</a>.</p>
 		    </div>
 		    <div class="col-md-6 portfolio-item">
 		        <a href="{{{ action('GamesController@showWhackAMole') }}}">
@@ -66,13 +90,13 @@
 		        <h3>
 		            <a href="{{{ action('GamesController@showWhackAMole') }}}">Whack-A-Big-12</a>
 		        </h3>
-		        <p>My take on our JavaScript assignment to make a whack-a-mole-style game. Currently the only option is to play as a Texas fan, perhaps I will add more options in the future. </p>
+		        <p>My take on our JavaScript assignment to make a whack-a-mole-style game. Currently the only option is to play as a Texas fan, perhaps I will add more options in the future.</p>
 		    </div>
 		</div><!-- /.row -->
 
 		<hr>
 
-		<!-- Projects Row -->
+		<!-- Simon & Rolldice -->
 		<div class="row">
 		    <div class="col-md-6 portfolio-item">
 		        <a href="{{{ action('GamesController@showSimon') }}}">

@@ -28,10 +28,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
-                    <a href="{{{ action('MeController@showResume') }}}">
-                        <h2 class="post-title">Skillset</h2>
-                        <h3 class="post-subtitle">Check out my resume.</h3>
-                    </a>
+                    <h2 class="post-title">Skillset</h2>
+                        <a href="{{{ action('MeController@showResume') }}}">
+                            <h3 class="post-subtitle">
+                                <span class="glyphicon glyphicon-link"></span>
+                                Check out my resume.
+                            </h3>
+                        </a>
 
                     <h5>PHP</h5>
                     <div class="skill-bar">
@@ -128,6 +131,7 @@
                             Portfolio
                         </h2>
                         <h3 class="post-subtitle">
+                            <span class="glyphicon glyphicon-link"></span>
                             Web dev work I've done.
                         </h3>
                     </a>

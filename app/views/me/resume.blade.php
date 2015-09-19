@@ -73,18 +73,6 @@
 			<li>Assisted with AP/AR functions for office managing over 2,000 units</li>
 		</ul>
 	</section>
-	<section class="entry">
-		<h3 class="title">Chicago Housing Authority Administrator</h3>
-		<h4 class="city">Chicago, IL</h4>
-		<h5 class="date">June 2012 - February 2013</h5>
-		<h4 class="employer">MAC Property Management</h4>
-		<ul class="duties">
-			<li>Served as primary liaison with Chicago Housing Authority</li>
-			<li>Managed CHA compliance and inspections on over 200 apartment units</li>
-			<li>Tracked and reported delinquencies and renewal rates for over 200 units</li>
-			<li>Assisted with AP/AR functions for office managing over 2,000 units</li>
-		</ul>
-	</section>
 	<hr>
 	<h2 class="heading">Education</h2>
 	<hr>
@@ -92,8 +80,8 @@
 		<h3 class="title">The University of Chicago</h3>
 		<h4 class="city">Chicago, IL</h4>
 		<h5 class="date">June 2012</h5>
-		<h4 class="employer">MAC Property Management</h4>
-		<p class="duties">Bachelor of Arts in Anthropology</p>
+		<h4 class="employer">Bachelor of Arts</h4>
+		<p class="duties">Anthropology</p>
 	</section>
 	<hr>
 	<h2 class="heading">Activities & Interests</h2>

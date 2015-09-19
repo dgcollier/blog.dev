@@ -50,16 +50,25 @@
                     </p>
 
                     <a href="{{{ action('PostsController@index') }}}">  
-                        <button id="backBtn" class="btn btn-default"><< Back</button>
+                        <button id="backBtn" class="btn btn-default">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            Back
+                        </button>
                     </a>
 
                     @if(Auth::check() && Auth::id() == $post->user->id)
 
                     <a href="{{{ action('PostsController@edit', $post->id) }}}">
-                        <input class="btn btn-default" value="Edit >>">
+                        <button class="btn btn-default" id="edit">
+                        <span class="glyphicon glyphicon-edit"></span>
+                        Edit
+                    </button>
                     </a>
                     
-                    <button class="btn btn-default" id="delete">Delete >></button>
+                    <button class="btn btn-default" id="delete">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        Delete
+                    </button>
 
                     @endif
 
