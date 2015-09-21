@@ -35,14 +35,23 @@
 					@endif
 
                     <a href="{{{ action('PostsController@index') }}}">  
-                        <button class="btn btn-default" id="backBtn" ><< Back</button>
+                        <button class="btn btn-default" id="backBtn" >
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            Back
+                        </button>
                     </a>
 
                     @if ($user->id == Auth::id())
 						<a href="{{{ action('UsersController@edit', Auth::id()) }}}">
-	                        <input class="btn btn-default" value="Edit >>">
+	                        <button class="btn btn-default">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                Edit
+                            </button>
 	                    </a>
-	                    <button class="btn btn-default" id="delete">Delete >></button>
+	                    <button class="btn btn-default" id="delete">
+                        <span class="glyphicon glyphicon-remove"></span>
+                            Delete
+                        </button>
                     @endif
 
 

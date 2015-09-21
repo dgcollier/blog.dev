@@ -1,14 +1,14 @@
 <html lang="en">
 <head>
-	@include('partials/head')
+	@include('layouts.partials.head')
     @yield('head')  
 </head>
 <body ng-app="blog">
 	<header>
-		@include('partials/nav')
+		@include('layouts.partials.nav')
 		@yield('header')
-        @include('partials/messages')
-        @include('partials/errors')
+        @include('layouts.partials.messages')
+        @include('layouts.partials.errors')
     </header>
 
     <main>
@@ -16,10 +16,10 @@
     </main>
 
     <footer>
-	    @include('partials/footer')
+	    @include('layouts.partials.footer')
     </footer>
 
-    @include('partials/script')      
+    @include('layouts.partials.script')      
 
     @yield('script')
 </body>

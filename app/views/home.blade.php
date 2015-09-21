@@ -16,7 +16,11 @@
                         <h1>D. G. COLLIER</h1>
                         <hr class="small">
                         <span class="subheading">Web Developer, Coffee Drinker</span>
-                        <span class="subheading">**Site Under Construction**</span>
+                        <span class="subheading">
+                            <span class="glyphicon glyphicon-wrench"></span>
+                            Site Under Construction
+                            <span class="glyphicon glyphicon-wrench"></span>
+                        </span>
                     </div>
                 </div>
             </div>
