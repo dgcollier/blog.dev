@@ -63,7 +63,7 @@
                             </div>
                         </div>
     	            </div>
-    	        {{ form::close() }}
+    	        {{ Form::close() }}
             </div>
         </div>
     </div>
