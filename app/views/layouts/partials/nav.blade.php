@@ -41,7 +41,7 @@
                 </li>
                 @endif
 
-                <li class="dropdown" id="wtf">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Misc.<span class="caret"></span></a>
                     <ul class="dropdown-menu nav navbar-nav navbar-right">
                         <li>

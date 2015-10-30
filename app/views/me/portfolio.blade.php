@@ -24,6 +24,26 @@
 
 @section('content')
 	<div class="container">
+		<!-- Bean Rate -->
+        <div class="row">
+            <div class="col-md-7">
+                <a href="http://beanrate.com" target="_blank">
+                    <img class="img-responsive" src="/img/portfolio/portfolio_coffee.png" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <h3>Bean Rate</h3>
+                <h4>Crowd-sourced Coffee Reviews</h4>
+                <p>My <a href="http://codeup.com/bootcamp/" target="_blank">Codeup</a> Capstone Project with <a href="https://www.linkedin.com/in/womackjoshua" target="_blank">Joshua Womack</a>. Our coffee nerd-ery led us to create something we thought didn't exist for anyone but the "experts". Went from concept to launch in under two weeks. We used PHP, JavaScript, jQuery, Laravel and MySQL for this project. We interacted with Mailgun and Google Maps APIs.</p>
+                <a class="btn btn-default" href="https://github.com/SouthernUncle/coffee.dev" target="_blank">
+                	<span class="glyphicon glyphicon-link"></span>
+                	Github 
+            	</a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
 		<!-- Concert Manager -->
         <div class="row">
             <div class="col-md-7">
@@ -33,7 +53,7 @@
             </div>
             <div class="col-md-5">
                 <h3>Concert Lister</h3>
-                <h4>Subheading</h4>
+                <h4>SATX Music Scene Aggregate</h4>
                 <p>Using PHP, Laravel, and MySQL, our team of two spent one week building this full-stack event management application. Currently, this app is not hosted live, but you can view our code.</p>
                 <a class="btn btn-default" href="https://github.com/SouthernUncle/events.dev" target="_blank">
                 	<span class="glyphicon glyphicon-link"></span>

@@ -150,9 +150,6 @@ class UsersController extends BaseController {
 	    } else if(!$user) {
 			Session::flash('errorMessage', 'The user you are looking for does not exist.');
 			App::abort(404);
-		} else if ((Auth::attempt(array('password' => $password)))) {
-			Session::flash('errorMessage', 'Your password was incorrect.');
-			return Redirect::back()->withInput()->withErrors($validator);
 		} else if ((Input::has('newPass') || Input::has('newPassConfirm')) && (Input::get('newPass') != Input::get('newPassConfirm'))) {
 			Session::flash('errorMessage', 'Your passwords did not match');
 			return Redirect::back()->withInput()->withErrors($validator);
