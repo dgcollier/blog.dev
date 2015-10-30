@@ -36,7 +36,6 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	    'first_name'  		=> 'required|max:32',
 	    'last_name'	  		=> 'required|max:32',
 	    'username'    		=> 'required|max:32',
-	    'password'	  		=> 'required|max:32',
 	    'newPass'			=> 'max:32', 
 	    'newPassConfirm'	=> 'max:32'
 	);

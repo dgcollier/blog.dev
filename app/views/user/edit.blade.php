@@ -36,9 +36,6 @@
     	                <div>
                             <input type="text" id="username" class="input" name="username" placeholder="Username" value="{{{ $user->username }}}">
                         </div>
-    	                <div>
-                            <input type="password" id="password" class="input" name="password" placeholder="Current Password">
-                        </div>
                         <div>
                             <input type="password" id="newPass" class="input" name="newPass" placeholder="New Password">
                         </div>

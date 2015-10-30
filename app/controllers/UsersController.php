@@ -138,7 +138,6 @@ class UsersController extends BaseController {
 	    $validator = Validator::make(Input::all(), User::$editRules);
 
 		$user = User::find($id);
-		$password = Input::get('password');
 
 	    // attempt validation
 	    if (Request::wantsJson()) {
