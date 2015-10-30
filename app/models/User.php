@@ -25,6 +25,11 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	    return $this->hasMany('Post');
 	}
 
+	public function role()
+	{
+		return $this->belongsTo('Role');
+	}
+
 	public static $rules = array(
 	    'first_name'  		=> 'required|max:32|min:2',
 	    'last_name'	  		=> 'required|max:32|min:2',
@@ -63,6 +68,15 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	public function setUsernameAttribute($value)
 	{
 	    $this->attributes['username'] = strtolower($value);
+	}
+
+	public function isAdmin()
+	{
+		if(Auth::user()->role()->name == 'Admin') {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

@@ -9,7 +9,7 @@ class PostsController extends BaseController {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->beforeFilter('auth', array('except' => array('index', 'show')));	
+		$this->beforeFilter('isAdmin', array('except' => array('index', 'show')));
 	}
 
 	/**
@@ -297,12 +297,7 @@ class PostsController extends BaseController {
 
     public function getManage()
     {
-    	if (Auth::check() && (Auth::id() == 1)) {
-	    	return View::make('posts.manage');
-    	} else {
-    		Session::flash('errorMessage', 'You do not have permission to access that page.');
-    		return Redirect::action('HomeController@showHome');
-    	}
+    	return View::make('posts.manage');
     }
 
     public function getList()

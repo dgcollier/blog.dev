@@ -54,6 +54,13 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+Route::filter('isAdmin', function() {
+	if(Auth::user()->role !== 'Admin') {
+		Session::flash('errorMessage', 'Insufficient permissions');
+		return Redirect::action('HomeController@showHome');
+	}
+});
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter

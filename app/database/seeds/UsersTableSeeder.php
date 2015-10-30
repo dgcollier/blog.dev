@@ -11,6 +11,7 @@
 			$user->last_name = $_ENV['USER_LAST_NAME'];
 			$user->username = $_ENV['USER_USERNAME'];
 			$user->password = $_ENV['USER_PASSWORD'];
+			$user->role_id = 1;
 			$user->save();
 
 			$faker = Faker::create();
@@ -20,7 +21,8 @@
 				$user1->first_name = $faker->firstName;
 				$user1->last_name = $faker->lastName;
 				$user1->username = $faker->userName;
-				$user1->password = $faker->password;
+				$user1->password = $_ENV['USER_PASSWORD'];
+				$user1->role_id = 2;
 				$user1->save();
 			}
 		}

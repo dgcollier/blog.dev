@@ -9,7 +9,8 @@ class UsersController extends BaseController {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->beforeFilter('auth', array('except' => array('create', 'store', 'show')));	
+		$this->beforeFilter('auth', array('except' => array('create', 'store', 'show')));
+		$this->beforeFilter('isAdmin', array('only' => array('getManage', 'getList')));	
 	}
 
 
@@ -20,7 +21,7 @@ class UsersController extends BaseController {
 	 */
 	public function index()
 	{
-		Auth::abort(404);
+		App::abort(404);
 	}
 
 
@@ -64,6 +65,7 @@ class UsersController extends BaseController {
 		$user->last_name = Input::get('last_name');
 		$user->username = Input::get('username');
 		$user->password = Input::get('password');
+		$user->role_id = 2;
 		$user->save();
 
 		Log::info('User id: ' . $user->id . ' created.', array('newUser' => Input::get('username')));
@@ -158,6 +160,7 @@ class UsersController extends BaseController {
 		$user->first_name = Input::get('first_name');
 		$user->last_name = Input::get('last_name');
 		$user->username = Input::get('username');
+		$user->role_id = $user->role_id;
 
 		if (Input::has('newPass')) {
 			$user->password = Input::get('newPass');
@@ -212,12 +215,7 @@ class UsersController extends BaseController {
 
 	public function getManage()
     {
-    	if (Auth::check() && (Auth::id() == 1)) {
-	    	return View::make('user.manage');
-    	} else {
-    		Session::flash('errorMessage', 'You do not have permission to access that page.');
-    		return Redirect::action('HomeController@showHome');
-    	}
+	   	return View::make('user.manage');
     }
 
     public function getList()
